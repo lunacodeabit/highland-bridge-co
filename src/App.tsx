@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import { useRef, useEffect } from 'react';
-import { ArrowRight, Phone, Construction, Anchor, Waves, Truck, PhoneCall, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Phone, Construction, Anchor, Waves, Truck, PhoneCall, CheckCircle2, Mountain, Droplets, ParkingSquare, Route } from 'lucide-react';
 import { Button } from './components/ui/button';
 import { Input } from './components/ui/input';
 import { Textarea } from './components/ui/textarea';
@@ -9,27 +9,51 @@ import { ChatWidget } from './components/ChatWidget';
 
 const services = [
   {
-    title: 'Rail Car Bridges',
-    description: 'Heavy-duty steel bridges built from recycled rail cars. Perfect for farms, ranches, and private roads.',
+    title: 'Bridge Construction',
+    description: 'Custom-built bridges with weight capacities up to 300,000 lbs. Lengths from 10\' to 180\' and widths up to 24\'. Made in the U.S.A.',
     icon: <Truck className="w-6 h-6 text-orange-500" />,
     img: '/hero_bridge.png'
   },
   {
-    title: 'Excavation & Dirt Work',
-    description: 'Professional excavation, land clearing, and site prep for residential and commercial projects.',
+    title: 'Excavation Services',
+    description: 'Professional excavation, land clearing, and site preparation for residential and commercial projects.',
     icon: <Construction className="w-6 h-6 text-orange-500" />,
     img: '/excavation.png'
   },
   {
-    title: 'Boat Docks & Houses',
-    description: 'Custom-built wooden boat docks and boathouses. Engineered to withstand the elements.',
+    title: 'Boat Docks & Boat Houses',
+    description: 'Custom-built boat docks and boat houses engineered to withstand the elements and enhance your waterfront.',
     icon: <Anchor className="w-6 h-6 text-orange-500" />,
     img: '/boat_dock.png'
   },
   {
-    title: 'Seawalls & Retaining',
-    description: 'Sturdy stone and concrete seawalls to prevent erosion and protect your valuable waterfront property.',
+    title: 'Seawall Construction',
+    description: 'Sturdy seawalls designed to prevent erosion and protect your valuable waterfront property for decades.',
     icon: <Waves className="w-6 h-6 text-orange-500" />,
+    img: '/seawall.png'
+  },
+  {
+    title: 'Retaining Walls',
+    description: 'Engineered retaining walls that stabilize slopes, manage water runoff, and add structural integrity to your land.',
+    icon: <Mountain className="w-6 h-6 text-orange-500" />,
+    img: '/seawall.png'
+  },
+  {
+    title: 'Rock & Asphalt Roads',
+    description: 'Durable rock and asphalt road construction for private properties, ranches, and rural access routes.',
+    icon: <Route className="w-6 h-6 text-orange-500" />,
+    img: '/excavation.png'
+  },
+  {
+    title: 'Parking Lots',
+    description: 'Professional parking lot construction and grading for commercial and residential properties.',
+    icon: <ParkingSquare className="w-6 h-6 text-orange-500" />,
+    img: '/excavation.png'
+  },
+  {
+    title: 'Drainage Systems',
+    description: 'Complete drainage system design and installation to manage water flow and protect your property from flooding.',
+    icon: <Droplets className="w-6 h-6 text-orange-500" />,
     img: '/seawall.png'
   }
 ];
@@ -205,7 +229,7 @@ export default function App() {
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-slate-400 mb-8 max-w-xl leading-relaxed">
-                From heavy-duty rail car bridges to excavation and waterfront seawalls. Cody Johnson and the Highland Bridge Co. team deliver rugged, engineered solutions built to last.
+                From heavy-duty bridges to excavation and waterfront seawalls. Cody Johnson and the Highland Bridge Co. team deliver rugged, engineered solutions built to last.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} size="lg" className="bg-orange-600 hover:bg-orange-700 text-white font-semibold h-14 px-8 text-lg rounded-xl">
@@ -225,10 +249,10 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <motion.div {...fadeIn} className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Our Core Expertise</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-lg">Comprehensive civil construction, marine engineering, and heavy hauling services tailored to your land's unique challenges.</p>
+            <p className="text-slate-400 max-w-2xl mx-auto text-lg">Comprehensive bridge construction, excavation, marine, and civil engineering services tailored to your land's unique challenges.</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {services.map((service, idx) => (
               <motion.div 
                 key={idx}
@@ -262,33 +286,52 @@ export default function App() {
           <motion.div {...fadeIn} className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">About Highland Bridge Co.</h2>
             <p className="text-slate-400 max-w-3xl mx-auto text-lg leading-relaxed">
-              Founded and led by Cody Johnson, Highland Bridge Co. is a full-service bridge and construction company based in Texas. We specialize in building custom, heavy-duty bridges using recycled rail cars—a solution that is both environmentally friendly and incredibly durable for farms, ranches, and private roads.
+              Founded and led by Cody Johnson, Highland Bridge Co. is a full-service bridge and construction company based in Texas with over 20 years of experience. We specialize in building custom, heavy-duty bridges engineered to handle the toughest loads — installed anywhere in the United States.
             </p>
           </motion.div>
           
+          {/* Bridge Specifications */}
+          <motion.div {...fadeIn} className="mb-16">
+            <h3 className="text-2xl font-bold text-white text-center mb-10">Bridge Specifications</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                { label: 'Weight Capacity', value: 'Up to 300,000 lbs' },
+                { label: 'Bridge Length', value: "10' to 180' long" },
+                { label: 'Bridge Width', value: "Up to 24' wide" },
+                { label: 'Railing Designs', value: '20+ options' },
+              ].map((spec, i) => (
+                <div key={i} className="text-center p-6 bg-slate-900/50 rounded-2xl border border-slate-800">
+                  <p className="text-2xl md:text-3xl font-bold text-orange-500 mb-2">{spec.value}</p>
+                  <p className="text-slate-400 text-sm uppercase tracking-wider">{spec.label}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Color Options & Features */}
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <motion.div {...fadeIn} className="p-6">
               <div className="w-12 h-12 mx-auto bg-orange-950/50 rounded-xl flex items-center justify-center mb-6 border border-orange-500/20">
                 <Truck className="text-orange-500 w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Rail Car Bridges</h3>
-              <p className="text-slate-400">Our signature service. We source, deliver, and install retired structural rail cars converted into bridges capable of supporting extreme weights.</p>
+              <h3 className="text-xl font-bold text-white mb-2">Made in the U.S.A.</h3>
+              <p className="text-slate-400">Every bridge is proudly built in the United States. We install anywhere in the country — from Texas to coast to coast.</p>
             </motion.div>
             
             <motion.div {...fadeIn} transition={{...fadeIn.transition, delay: 0.1}} className="p-6">
               <div className="w-12 h-12 mx-auto bg-orange-950/50 rounded-xl flex items-center justify-center mb-6 border border-orange-500/20">
                 <Construction className="text-orange-500 w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Driveways & Parking</h3>
-              <p className="text-slate-400">We construct professional asphalt and stone driveways, parking lots, and comprehensive concrete work tailored to your property.</p>
+              <h3 className="text-xl font-bold text-white mb-2">Color Options</h3>
+              <p className="text-slate-400">Available in Black, Brown, White, Grey, Green, and Patina finishes to match your property's aesthetic perfectly.</p>
             </motion.div>
             
             <motion.div {...fadeIn} transition={{...fadeIn.transition, delay: 0.2}} className="p-6">
               <div className="w-12 h-12 mx-auto bg-orange-950/50 rounded-xl flex items-center justify-center mb-6 border border-orange-500/20">
                 <Waves className="text-orange-500 w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Marine & Excavation</h3>
-              <p className="text-slate-400">From retaining seawalls and custom boat docks to massive excavation and drainage projects, we have the heavy machinery to do it right.</p>
+              <h3 className="text-xl font-bold text-white mb-2">20+ Railing Designs</h3>
+              <p className="text-slate-400">Choose from over 20 different railing designs to customize the look and safety features of your bridge installation.</p>
             </motion.div>
           </div>
         </div>
@@ -304,11 +347,11 @@ export default function App() {
             <motion.div {...fadeIn}>
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Expertise You Can Build On.</h2>
               <p className="text-slate-400 mb-8 text-lg leading-relaxed">
-                Whether you need a robust rail car bridge for heavy equipment, or a reliable seawall to protect your shoreline, Highland Bridge Co. brings the right machinery and experience to get it done right the first time.
+                Whether you need a heavy-duty bridge for your ranch, a reliable seawall to protect your shoreline, or excavation work done right, Highland Bridge Co. brings the machinery and 20+ years of experience to get it done the first time.
               </p>
               
               <ul className="space-y-4 mb-10">
-                {['Licensed & Fully Insured', 'Heavy Machinery Fleet', 'Custom Engineering Solutions', 'Free On-site Estimates'].map((item, i) => (
+                {['20+ Years of Experience', 'Heavy Machinery Fleet', 'Custom Engineering Solutions', 'Free On-site Estimates'].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-white font-medium">
                     <CheckCircle2 className="text-orange-500 w-6 h-6 shrink-0" />
                     {item}
