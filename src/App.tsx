@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useMotionValueEvent, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import { ArrowRight, Phone, Construction, Anchor, Waves, Truck, PhoneCall, CheckCircle2 } from 'lucide-react';
 import { Button } from './components/ui/button';
