@@ -26,3 +26,6 @@ dist-ssr
 # Original unoptimized frames (use frames-webp/ instead)
 public/frames/
 optimize_frames.py
+
+# Video Assets
+*.mp4
