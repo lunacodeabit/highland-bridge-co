@@ -90,34 +90,75 @@ export default function App() {
   // -- CANVAS SEQUENCE LOGIC --
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
-  const FRAME_COUNT = 188;
+  const FRAME_COUNT = 94; // Optimized: 94 WebP frames (was 188 JPEGs)
   
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end end"]
   });
 
-  // 1. Pre-load all images + ResizeObserver to keep canvas pixel-perfect at any viewport
+  // 1. PROGRESSIVE LOADING: Load first 10 frames instantly, then batch-load the rest
   useEffect(() => {
-    const images: HTMLImageElement[] = [];
-    for (let i = 1; i <= FRAME_COUNT; i++) {
-      const img = new Image();
-      img.src = `/frames/frame_ (${i}).jpg`;
-      images.push(img);
-    }
-    imagesRef.current = images;
+    const images: HTMLImageElement[] = new Array(FRAME_COUNT);
+    let loadedCount = 0;
+    const PRIORITY_COUNT = 10; // Load first 10 frames with high priority
+    const BATCH_SIZE = 15;
 
-    // Paint frame 0 once loaded
-    images[0].onload = () => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width;
-      canvas.height = rect.height;
-      drawImageCover(ctx, images[0], canvas.width, canvas.height);
+    const onFrameLoaded = () => {
+      loadedCount++;
+      // Paint frame 1 as soon as it's ready
+      if (loadedCount === 1 && images[0]?.complete && images[0].naturalWidth > 0) {
+        const canvas = canvasRef.current;
+        if (canvas) {
+          const ctx = canvas.getContext('2d');
+          if (ctx) {
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+            drawImageCover(ctx, images[0], canvas.width, canvas.height);
+          }
+        }
+      }
+      if (loadedCount >= FRAME_COUNT) {
+      // All frames loaded
+      }
     };
+
+    // Priority: load first 10 frames immediately
+    for (let i = 0; i < Math.min(PRIORITY_COUNT, FRAME_COUNT); i++) {
+      const img = new Image();
+      img.onload = onFrameLoaded;
+      img.onerror = onFrameLoaded;
+      img.src = `/frames-webp/frame_${i + 1}.webp`;
+      images[i] = img;
+    }
+
+    // Lazy: load remaining frames in batches
+    let batchStart = PRIORITY_COUNT;
+    const loadBatch = () => {
+      const end = Math.min(batchStart + BATCH_SIZE, FRAME_COUNT);
+      for (let i = batchStart; i < end; i++) {
+        const img = new Image();
+        img.onload = onFrameLoaded;
+        img.onerror = onFrameLoaded;
+        img.src = `/frames-webp/frame_${i + 1}.webp`;
+        images[i] = img;
+      }
+      batchStart = end;
+      if (batchStart < FRAME_COUNT) {
+        // Use requestIdleCallback or setTimeout to avoid blocking main thread
+        if ('requestIdleCallback' in window) {
+          (window as any).requestIdleCallback(loadBatch);
+        } else {
+          setTimeout(loadBatch, 50);
+        }
+      }
+    };
+    if (PRIORITY_COUNT < FRAME_COUNT) {
+      setTimeout(loadBatch, 100); // Start lazy loading after priority frames
+    }
+
+    imagesRef.current = images;
 
     // Keep canvas sized to container on resize/orientation change
     const canvas = canvasRef.current;
@@ -129,7 +170,6 @@ export default function App() {
         canvas.height = height;
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
-        // Re-paint current frame after resize
         const progress = scrollYProgress.get();
         let idx = Math.floor(progress * (FRAME_COUNT - 1));
         if (idx < 0) idx = 0;
@@ -264,7 +304,7 @@ export default function App() {
                 <Card className="bg-slate-950 border-slate-800 overflow-hidden group hover:border-orange-500/50 transition-colors h-full">
                   <div className="h-48 overflow-hidden relative">
                     <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-colors z-10" />
-                    <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <img src={service.img} alt={service.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   </div>
                   <CardContent className="p-6 md:p-8">
                      <div className="w-12 h-12 bg-orange-950/50 rounded-xl flex items-center justify-center mb-6 border border-orange-500/20">

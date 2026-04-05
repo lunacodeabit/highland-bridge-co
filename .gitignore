@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Original unoptimized frames (use frames-webp/ instead)
+public/frames/
+optimize_frames.py
