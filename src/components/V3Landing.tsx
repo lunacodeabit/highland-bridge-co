@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Check, ArrowRight, Menu, X, Scale, Ruler, Trophy, ShieldCheck, Clock, Star, Globe, Activity } from 'lucide-react';
+import { Phone, Mail, MapPin, Check, ArrowRight, Menu, X, Ruler, Trophy, ShieldCheck, Clock, Star, Globe, Activity } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 
@@ -59,7 +59,7 @@ const benefits = [
   }
 ];
 
-export default function V3Landing({ setVersion }: { setVersion: (v: number) => void }) {
+export default function V3Landing({ }: { setVersion: (v: number) => void }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -74,8 +74,8 @@ export default function V3Landing({ setVersion }: { setVersion: (v: number) => v
       {/* TOP BAR - Identical to Wintergreen */}
       <div className="bg-slate-950 text-white py-2 px-4 md:px-8 flex justify-between items-center text-xs relative z-50">
         <div className="flex items-center gap-6">
-          <a href="tel:4696898383" className="flex items-center gap-2 hover:text-[#D70C20] transition-colors font-bold">
-            <div className="bg-[#D70C20] p-1.5 rounded-sm"><Phone className="w-3 h-3 fill-white" /></div> (469) 689-8383
+          <a href="tel:2146686311" className="flex items-center gap-2 hover:text-[#D70C20] transition-colors font-bold">
+            <div className="bg-[#D70C20] p-1.5 rounded-sm"><Phone className="w-3 h-3 fill-white" /></div> (214) 668-6311
           </a>
           <span className="hidden md:inline text-slate-700">|</span>
           <div className="hidden md:flex items-center gap-2 text-slate-300 font-bold uppercase tracking-wider">
@@ -265,9 +265,11 @@ export default function V3Landing({ setVersion }: { setVersion: (v: number) => v
             <Button className="bg-black hover:bg-white hover:text-black transition-all text-white px-12 py-9 text-2xl font-black rounded-sm shadow-2xl uppercase">
               GET A FREE QUOTE
             </Button>
+            <a href="tel:2146686311">
             <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black px-12 py-9 text-2xl font-black rounded-sm bg-transparent uppercase">
-              CALL (469) 689-8383
+              CALL (214) 668-6311
             </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -311,11 +313,11 @@ export default function V3Landing({ setVersion }: { setVersion: (v: number) => v
               <ul className="flex flex-col gap-6 text-slate-400 font-bold text-sm">
                 <li className="flex items-start gap-4">
                   <MapPin className="text-[#D70C20] w-5 h-5 shrink-0" />
-                  <span>123 Construction Way,<br/>Fort Worth, TX 76102</span>
+                  <span>Installing Nationwide</span>
                 </li>
                 <li className="flex items-center gap-4">
                   <Phone className="text-[#D70C20] w-5 h-5 shrink-0" />
-                  <span>(469) 689-8383</span>
+                  <span>(214) 668-6311</span>
                 </li>
                 <li className="flex items-center gap-4">
                   <Mail className="text-[#D70C20] w-5 h-5 shrink-0" />
@@ -349,9 +351,6 @@ export default function V3Landing({ setVersion }: { setVersion: (v: number) => v
         </div>
       </footer>
 
-      <div className="fixed bottom-6 right-6 z-[120] w-14 h-14 bg-[#2E7731] rounded-full flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 transition-transform">
-         <Mail size={24} />
-      </div>
     </div>
   );
 }

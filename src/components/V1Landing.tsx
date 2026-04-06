@@ -80,7 +80,7 @@ function drawImageCover(ctx: CanvasRenderingContext2D, img: HTMLImageElement, cw
   ctx.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch);
 }
 
-export function V1Landing({ setVersion }: { setVersion: (v: number) => void }) {
+export function V1Landing({ }: { setVersion: (v: number) => void }) {
   const heroRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);

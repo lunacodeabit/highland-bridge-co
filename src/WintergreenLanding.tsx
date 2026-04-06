@@ -32,7 +32,7 @@ const colors = [
   { name: 'Patina', hex: '#4DB6AC' }
 ];
 
-export default function WintergreenLanding({ setVersion }: { setVersion: (v: number) => void }) {
+export default function WintergreenLanding({ }: { setVersion: (v: number) => void }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -47,8 +47,8 @@ export default function WintergreenLanding({ setVersion }: { setVersion: (v: num
       {/* TOP BAR */}
       <div className="bg-slate-900 text-white py-2 px-4 md:px-8 flex justify-between items-center text-sm">
         <div className="flex items-center gap-4">
-          <a href="tel:1234567890" className="flex items-center gap-1 hover:text-red-500 transition-colors">
-            <Phone className="w-4 h-4" /> (123) 456-7890
+          <a href="tel:2146686311" className="flex items-center gap-1 hover:text-red-500 transition-colors">
+            <Phone className="w-4 h-4" /> (214) 668-6311
           </a>
           <span className="hidden md:inline text-slate-500">|</span>
           <div className="hidden md:flex items-center gap-1 text-slate-300">
@@ -284,9 +284,11 @@ export default function WintergreenLanding({ setVersion }: { setVersion: (v: num
             <Button className="bg-white text-[#D70C20] hover:bg-slate-900 hover:text-white px-10 py-8 text-xl font-black rounded-none tracking-tight">
               GET A FREE QUOTE
             </Button>
-            <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#D70C20] px-10 py-8 text-xl font-black rounded-none bg-transparent">
-              CALL (123) 456-7890
-            </Button>
+            <a href="tel:2146686311">
+              <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#D70C20] px-10 py-8 text-xl font-black rounded-none bg-transparent">
+                CALL (214) 668-6311
+              </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -306,12 +308,15 @@ export default function WintergreenLanding({ setVersion }: { setVersion: (v: num
               Premium bridge construction and infrastructure services since 2004. Quality craftmanship made in the U.S.A.
             </p>
             <div className="flex gap-4">
-              <div className="w-10 h-10 rounded bg-slate-800 flex items-center justify-center hover:bg-[#D70C20] transition-colors cursor-pointer">
+              <a href="tel:2146686311" className="w-10 h-10 rounded bg-slate-800 flex items-center justify-center hover:bg-[#D70C20] transition-colors cursor-pointer">
                 <Phone size={20} />
-              </div>
-              <div className="w-10 h-10 rounded bg-slate-800 flex items-center justify-center hover:bg-[#D70C20] transition-colors cursor-pointer">
+              </a>
+              <a href="mailto:info@highlandbridge.com" className="w-10 h-10 rounded bg-slate-800 flex items-center justify-center hover:bg-[#D70C20] transition-colors cursor-pointer">
                 <Mail size={20} />
-              </div>
+              </a>
+              <a href="https://www.facebook.com/p/Highland-Bridge-Co-100086236734310/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded bg-slate-800 flex items-center justify-center hover:bg-[#D70C20] transition-colors cursor-pointer text-white text-xs font-bold">
+                FB
+              </a>
             </div>
           </div>
           <div>
@@ -326,7 +331,7 @@ export default function WintergreenLanding({ setVersion }: { setVersion: (v: num
           <div>
             <h4 className="font-black uppercase mb-6 border-b border-[#D70C20] pb-2 inline-block">Contact</h4>
             <ul className="flex flex-col gap-4 text-slate-400 font-bold text-sm">
-              <li className="flex items-center gap-3"><Phone size={18} className="text-[#D70C20]" /> (123) 456-7890</li>
+              <li className="flex items-center gap-3"><Phone size={18} className="text-[#D70C20]" /> (214) 668-6311</li>
               <li className="flex items-center gap-3"><Mail size={18} className="text-[#D70C20]" /> info@highlandbridge.com</li>
               <li className="flex items-center gap-3"><MapPin size={18} className="text-[#D70C20]" /> Installing Nationwide</li>
             </ul>

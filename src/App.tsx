@@ -3,6 +3,7 @@ import { ChatWidget } from './components/ChatWidget';
 import WintergreenLanding from './WintergreenLanding';
 import { V1Landing } from './components/V1Landing';
 import V3Landing from './components/V3Landing';
+import { Metadata } from './components/Metadata';
 
 export default function App() {
   const [version, setVersion] = useState(() => {
@@ -28,6 +29,7 @@ export default function App() {
   // Main Return - Toggles between versions safely
   return (
     <>
+      <Metadata />
       {version === 3 ? (
         <V3Landing setVersion={setVersion} />
       ) : version === 2 ? (
