@@ -28,4 +28,4 @@ public/frames/
 optimize_frames.py
 
 # Video Assets
-*.mp4
+# *.mp4 (commented out to allow hero videos)
