@@ -134,6 +134,8 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
             muted 
             loop 
             playsInline 
+            poster="/hero_bridge.png"
+            preload="auto"
             className="absolute inset-0 w-full h-full object-cover opacity-70"
             src="/codyvideo.mp4"
           />

@@ -99,7 +99,8 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
 
     const onFrameLoaded = () => {
       loadedCount++;
-      if (loadedCount === 1 && images[0]?.complete && images[0].naturalWidth > 0) {
+      // If the first frame is loaded, paint it immediately to avoid 'flicker'
+      if (images[0]?.complete && images[0].naturalWidth > 0) {
         const canvas = canvasRef.current;
         if (canvas) {
           const ctx = canvas.getContext('2d');
@@ -119,6 +120,9 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
       img.onerror = onFrameLoaded;
       img.src = `/frames-webp/frame_${i + 1}.webp`;
       images[i] = img;
+      
+      // Check if already in cache and trigger manual paint
+      if (img.complete && i === 0) onFrameLoaded();
     }
 
     let batchStart = PRIORITY_COUNT;
@@ -126,8 +130,6 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
       const end = Math.min(batchStart + BATCH_SIZE, FRAME_COUNT);
       for (let i = batchStart; i < end; i++) {
         const img = new Image();
-        img.onload = onFrameLoaded;
-        img.onerror = onFrameLoaded;
         img.src = `/frames-webp/frame_${i + 1}.webp`;
         images[i] = img;
       }
@@ -136,7 +138,7 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
         if ('requestIdleCallback' in window) {
           (window as any).requestIdleCallback(loadBatch);
         } else {
-          setTimeout(loadBatch, 50);
+          setTimeout(loadBatch, 30);
         }
       }
     };
