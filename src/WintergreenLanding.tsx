@@ -104,6 +104,8 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
           muted 
           loop 
           playsInline 
+          poster="/hero_bridge.png"
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
           src="/cody.mp4"
         />
