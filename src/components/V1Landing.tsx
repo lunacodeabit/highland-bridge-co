@@ -99,7 +99,7 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
             loop 
             playsInline 
             className="w-full h-full object-cover opacity-60"
-            src="/codyvideo_2k.mp4"
+            src="/codyvideo.mp4"
           />
         </div>
 
@@ -190,8 +190,8 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
                 { label: 'Weight Capacity', value: 'Up to 300,000 lbs' },
-                { label: 'Bridge Length', value: "10' to 180' long" },
-                { label: 'Bridge Width', value: "Up to 24' wide" },
+                { label: 'Bridge Length', value: \"10' to 180' long\" },
+                { label: 'Bridge Width', value: \"Up to 24' wide\" },
                 { label: 'Railing Designs', value: '20+ options' },
               ].map((spec, i) => (
                 <div key={i} className="text-center p-6 bg-slate-900/50 rounded-2xl border border-slate-800">
