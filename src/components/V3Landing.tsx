@@ -71,7 +71,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 overflow-x-hidden">
-      {/* TOP BAR - Identical to Wintergreen */}
+      {/* TOP BAR - Identical to Wintergreen Style */}
       <div className="bg-slate-950 text-white py-2 px-4 md:px-8 flex justify-between items-center text-xs relative z-50">
         <div className="flex items-center gap-6">
           <a href="tel:2146686311" className="flex items-center gap-2 hover:text-[#D70C20] transition-colors font-bold">
@@ -137,7 +137,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
 
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover opacity-70"
-            src="/codyvideo_2k.mp4"
+            src="/codyvideo.mp4"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
         </div>
@@ -269,7 +269,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
             </Button>
             <a href="tel:2146686311">
             <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black px-12 py-9 text-2xl font-black rounded-sm bg-transparent uppercase">
-              CALL (214) 668-6311
+              CALL (214) (214) 668-6311
             </Button>
             </a>
           </div>
