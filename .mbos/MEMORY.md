@@ -10,3 +10,8 @@
 - **Aprendizaje:** Al manejar grandes volúmenes de datos en commits de GitHub (ej. 4 archivos grandes con lógica compleja), el LLM puede exceder el límite de tokens de salida. Solución: Dividir el push en batches lógicos para mantener la integridad de la sesión.
 - **Performance:** El sistema de pre-carga de frames en `V1Landing` utiliza `requestIdleCallback` para no bloquear el hilo principal mientras se cargan los activos pesados, mejorando drásticamente el FCP (First Contentful Paint) y eliminando el flicker inicial.
 - **SEO:** Se estandarizaron los metatags en `index.html` para mejorar el ranking de "Highland Bridge Co." y "Custom Steel Bridges". Se añadieron preloads para reducir el CLS (Cumulative Layout Shift) en móviles.
+
+## [2026-04-08]
+- **Optimización de Assets:** Se reemplazó el sistema de frames (canvas) en V1 por video nativo 2K optimizado (`codyvideo_2k.mp4`) para maximizar la compatibilidad móvil y el rendimiento.
+- **Liquidación de Activos:** Se eliminó todo rastro de la imagen `hero_bridge.png` (ferrocarril) en todas las versiones por requerimiento de marketing, incluyendo metadatos de pre-carga en `index.html`.
+- **Sincronización Global:** Se resolvió una colisión de estado durante el commit final mediante el protocolo de rebase harmonizado, asegurando que los cambios locales de optimización prevalecieran sobre el estado anterior remoto.
