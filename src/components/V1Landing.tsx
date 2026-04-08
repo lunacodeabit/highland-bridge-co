@@ -1,5 +1,4 @@
-import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
-import { useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, Phone, Construction, Anchor, Waves, Truck, PhoneCall, CheckCircle2, Mountain, Droplets, ParkingSquare, Route } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
@@ -11,7 +10,7 @@ const services = [
     title: 'Bridge Construction',
     description: 'Custom-built bridges with weight capacities up to 300,000 lbs. Lengths from 10\' to 180\' and widths up to 24\'. Made in the U.S.A.',
     icon: <Truck className="w-6 h-6 text-orange-500" />,
-    img: '/hero_bridge.png'
+    img: '/blueprint_bridge.png'
   },
   {
     title: 'Excavation Services',
@@ -64,129 +63,7 @@ const fadeIn = {
   transition: { duration: 0.6 }
 };
 
-function drawImageCover(ctx: CanvasRenderingContext2D, img: HTMLImageElement, cw: number, ch: number) {
-  const iw = img.naturalWidth;
-  const ih = img.naturalHeight;
-  const imageAspect = iw / ih;
-  const canvasAspect = cw / ch;
-  let sx = 0, sy = 0, sw = iw, sh = ih;
-  if (imageAspect > canvasAspect) {
-    sw = ih * canvasAspect;
-    sx = (iw - sw) / 2;
-  } else {
-    sh = iw / canvasAspect;
-    sy = (ih - sh) / 2;
-  }
-  ctx.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch);
-}
-
 export function V1Landing({ }: { setVersion: (v: number) => void }) {
-  const heroRef = useRef<HTMLElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const imagesRef = useRef<HTMLImageElement[]>([]);
-  const FRAME_COUNT = 94;
-  
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end end"]
-  });
-
-  useEffect(() => {
-    const images: HTMLImageElement[] = new Array(FRAME_COUNT);
-    let loadedCount = 0;
-    const PRIORITY_COUNT = 10;
-    const BATCH_SIZE = 15;
-
-    const onFrameLoaded = () => {
-      loadedCount++;
-      // If the first frame is loaded, paint it immediately to avoid 'flicker'
-      if (images[0]?.complete && images[0].naturalWidth > 0) {
-        const canvas = canvasRef.current;
-        if (canvas) {
-          const ctx = canvas.getContext('2d');
-          if (ctx) {
-            const rect = canvas.getBoundingClientRect();
-            canvas.width = rect.width;
-            canvas.height = rect.height;
-            drawImageCover(ctx, images[0], canvas.width, canvas.height);
-          }
-        }
-      }
-    };
-
-    for (let i = 0; i < Math.min(PRIORITY_COUNT, FRAME_COUNT); i++) {
-      const img = new Image();
-      img.onload = onFrameLoaded;
-      img.onerror = onFrameLoaded;
-      img.src = `/frames-webp/frame_${i + 1}.webp`;
-      images[i] = img;
-      
-      // Check if already in cache and trigger manual paint
-      if (img.complete && i === 0) onFrameLoaded();
-    }
-
-    let batchStart = PRIORITY_COUNT;
-    const loadBatch = () => {
-      const end = Math.min(batchStart + BATCH_SIZE, FRAME_COUNT);
-      for (let i = batchStart; i < end; i++) {
-        const img = new Image();
-        img.src = `/frames-webp/frame_${i + 1}.webp`;
-        images[i] = img;
-      }
-      batchStart = end;
-      if (batchStart < FRAME_COUNT) {
-        if ('requestIdleCallback' in window) {
-          (window as any).requestIdleCallback(loadBatch);
-        } else {
-          setTimeout(loadBatch, 30);
-        }
-      }
-    };
-    if (PRIORITY_COUNT < FRAME_COUNT) {
-      setTimeout(loadBatch, 100);
-    }
-
-    imagesRef.current = images;
-
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const observer = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const { width, height } = entry.contentRect;
-        canvas.width = width;
-        canvas.height = height;
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
-        const progress = scrollYProgress.get();
-        let idx = Math.floor(progress * (FRAME_COUNT - 1));
-        if (idx < 0) idx = 0;
-        if (idx >= FRAME_COUNT) idx = FRAME_COUNT - 1;
-        const img = imagesRef.current[idx];
-        if (img?.complete && img.naturalWidth > 0) {
-          drawImageCover(ctx, img, width, height);
-        }
-      }
-    });
-    observer.observe(canvas);
-    return () => observer.disconnect();
-  }, [scrollYProgress]);
-  
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    let frameIndex = Math.floor(latest * (FRAME_COUNT - 1));
-    if (frameIndex < 0) frameIndex = 0;
-    if (frameIndex >= FRAME_COUNT) frameIndex = FRAME_COUNT - 1;
-
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    const img = imagesRef.current[frameIndex];
-    if (img?.complete && img.naturalWidth > 0) {
-      drawImageCover(ctx, img, canvas.width, canvas.height);
-    }
-  });
-
-  const yText = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
     <div className="min-h-screen bg-slate-950 font-sans text-slate-200">
@@ -214,53 +91,50 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
       </nav>
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative h-[500vh] bg-slate-950">
-        <div className="sticky top-0 h-[100svh] overflow-hidden flex items-end pb-16 lg:pb-0 lg:items-center lg:pt-20">
-          <div className="absolute inset-0 z-0 bg-slate-950">
-            <canvas ref={canvasRef} className="w-full h-full" />
-          </div>
+      <section className="relative h-[90vh] flex items-center overflow-hidden bg-slate-950">
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline 
+            className="w-full h-full object-cover opacity-60"
+            src="/codyvideo_2k.mp4"
+          />
+        </div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/10 lg:hidden z-10" />
-          <div className="hidden lg:block absolute inset-y-0 left-0 w-[70%] bg-gradient-to-r from-slate-950 via-slate-950/95 to-transparent z-10" />
-          
-          <div className="absolute bottom-4 lg:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-40 animate-pulse">
-            <span className="text-xs font-semibold tracking-widest uppercase bg-slate-950/60 text-slate-300 px-4 py-1.5 rounded-full backdrop-blur-md border border-slate-800">
-              Scroll to Construct Bridge
-            </span>
-            <div className="w-[2px] h-10 lg:h-16 bg-gradient-to-b from-cyan-400 to-transparent"></div>
-          </div>
-          
-          <div className="relative z-40 max-w-7xl mx-auto px-4 md:px-8 w-full">
-            <motion.div 
-              style={{ y: yText }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-2xl"
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-500 text-sm font-medium mb-4 lg:mb-6 border border-orange-500/20">
-                <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-                Serving Texas & Beyond
-              </div>
-              <h1 className="text-4xl md:text-7xl font-extrabold text-white leading-tight mb-4 lg:mb-6 tracking-tight">
-                Building Bridges,<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-                  Connecting Futures.
-                </span>
-              </h1>
-              <p className="text-lg md:text-xl text-slate-400 mb-8 max-w-xl leading-relaxed">
-                From heavy-duty bridges to excavation and waterfront seawalls. Cody Johnson and the Highland Bridge Co. team deliver rugged, engineered solutions built to last.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} size="lg" className="bg-orange-600 hover:bg-orange-700 text-white font-semibold h-14 px-8 text-lg rounded-xl">
-                  Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-                <Button size="lg" variant="outline" className="border-slate-600 text-white bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-slate-400 h-14 px-8 text-lg rounded-xl">
-                  <PhoneCall className="mr-2 w-5 h-5" /> (214) 668-6311
-                </Button>
-              </div>
-            </motion.div>
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/10 lg:hidden z-10" />
+        <div className="hidden lg:block absolute inset-y-0 left-0 w-[70%] bg-gradient-to-r from-slate-950 via-slate-950/95 to-transparent z-10" />
+        
+        <div className="relative z-40 max-w-7xl mx-auto px-4 md:px-8 w-full">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-2xl"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-500 text-sm font-medium mb-4 lg:mb-6 border border-orange-500/20">
+              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+              Serving Texas & Beyond
+            </div>
+            <h1 className="text-4xl md:text-7xl font-extrabold text-white leading-tight mb-4 lg:mb-6 tracking-tight">
+              Building Bridges,<br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
+                Connecting Futures.
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl text-slate-400 mb-8 max-w-xl leading-relaxed">
+              From heavy-duty bridges to excavation and waterfront seawalls. Cody Johnson and the Highland Bridge Co. team deliver rugged, engineered solutions built to last.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} size="lg" className="bg-orange-600 hover:bg-orange-700 text-white font-semibold h-14 px-8 text-lg rounded-xl">
+                Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button size="lg" variant="outline" className="border-slate-600 text-white bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-slate-400 h-14 px-8 text-lg rounded-xl">
+                <PhoneCall className="mr-2 w-5 h-5" /> (214) 668-6311
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
 

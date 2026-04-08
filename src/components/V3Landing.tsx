@@ -7,7 +7,7 @@ const services = [
   { 
     title: 'Bridge Construction', 
     description: 'Custom steel bridges engineered for capacities up to 300,000 lbs. Built in the USA and delivered nationwide.',
-    img: '/hero_bridge.png' 
+    img: '/blueprint_bridge.png' 
   },
   { 
     title: 'Excavation & Site Prep', 
@@ -36,7 +36,7 @@ const benefits = [
   { 
     title: '20+ Years', 
     desc: 'Decades of specialized experience in high-precision infrastructure projects.', 
-    img: '/hero_bridge.png',
+    img: '/blueprint_bridge.png',
     icon: <Clock className="w-5 h-5" /> 
   },
   { 
@@ -134,10 +134,10 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
             muted 
             loop 
             playsInline 
-            poster="/hero_bridge.png"
+
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover opacity-70"
-            src="/codyvideo.mp4"
+            src="/codyvideo_2k.mp4"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
         </div>

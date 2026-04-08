@@ -20,7 +20,7 @@ export const SERVICES = [
   {
     title: 'Bridge Construction',
     description: 'Custom-built bridges with weight capacities up to 300,000 lbs. Lengths from 10\' to 180\' and widths up to 24\'. Made in the U.S.A.',
-    img: '/hero_bridge.png',
+    img: '/blueprint_bridge.png',
   },
   {
     title: 'Excavation Services',

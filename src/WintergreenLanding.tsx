@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Button } from './components/ui/button';
 
 const services = [
-  { title: 'Bridge Construction', img: '/hero_bridge.png' },
+  { title: 'Bridge Construction', img: '/blueprint_bridge.png' },
   { title: 'Excavation Services', img: '/excavation.png' },
   { title: 'Boat Docks & Houses', img: '/boat_dock.png' },
   { title: 'Seawall Construction', img: '/seawall.png' },
@@ -104,7 +104,7 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
           muted 
           loop 
           playsInline 
-          poster="/hero_bridge.png"
+
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
           src="/cody.mp4"
@@ -167,7 +167,7 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
         <div className="container mx-auto px-4 flex flex-col lg:flex-row gap-16 items-center">
            <div className="lg:w-1/2 relative">
              <div className="absolute -top-4 -left-4 w-24 h-24 bg-[#D70C20]/10 -z-10"></div>
-             <img src="/hero_bridge.png" alt="Bridge Construction" className="w-full h-auto shadow-2xl skew-y-1 grayscale hover:grayscale-0 transition-all duration-700" />
+             <img src="/blueprint_bridge.png" alt="Bridge Construction" className="w-full h-auto shadow-2xl skew-y-1 hover:skew-y-0 transition-all duration-700" />
              <div className="absolute -bottom-8 -right-8 bg-[#D70C20] p-8 text-white hidden md:block">
                <span className="text-4xl font-black block">300K</span>
                <span className="text-sm font-bold uppercase tracking-widest">LBS Capacity</span>
