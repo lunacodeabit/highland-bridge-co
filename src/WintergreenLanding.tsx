@@ -59,7 +59,7 @@ const benefits = [
   }
 ];
 
-export default function WintergreenLanding() {
+export default function WintergreenLanding({ }: { setVersion: (v: number) => void }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
