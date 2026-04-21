@@ -96,48 +96,53 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center overflow-hidden bg-slate-950">
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <ScrollFrameCanvas
-            frameCount={V1_FRAME_COUNT}
-            getFrameUrl={getV1FrameUrl}
-            className="w-full h-full opacity-60"
-          />
-        </div>
+      {/* Hero Section — scroll-pinned with frame animation.
+          Outer section is tall (250vh) so the sticky inner stays in view for 150vh
+          of scroll, giving the user time to scrub through all 94 frames. */}
+      <section className="relative h-[250vh] bg-slate-950">
+        <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            <ScrollFrameCanvas
+              frameCount={V1_FRAME_COUNT}
+              getFrameUrl={getV1FrameUrl}
+              className="w-full h-full opacity-60"
+              scrollRange={1.5}
+            />
+          </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/10 lg:hidden z-10" />
-        <div className="hidden lg:block absolute inset-y-0 left-0 w-[70%] bg-gradient-to-r from-slate-950 via-slate-950/95 to-transparent z-10" />
-        
-        <div className="relative z-40 max-w-7xl mx-auto px-4 md:px-8 w-full">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-500 text-sm font-medium mb-4 lg:mb-6 border border-orange-500/20">
-              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-              Serving Texas & Beyond
-            </div>
-            <h1 className="text-4xl md:text-7xl font-extrabold text-white leading-tight mb-4 lg:mb-6 tracking-tight">
-              Building Bridges,<br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-                Connecting Futures.
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-slate-400 mb-8 max-w-xl leading-relaxed">
-              From heavy-duty bridges to excavation and waterfront seawalls. Cody Johnson and the Highland Bridge Co. team deliver rugged, engineered solutions built to last.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} size="lg" className="bg-orange-600 hover:bg-orange-700 text-white font-semibold h-14 px-8 text-lg rounded-xl">
-                Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-slate-600 text-white bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-slate-400 h-14 px-8 text-lg rounded-xl">
-                <PhoneCall className="mr-2 w-5 h-5" /> (214) 668-6311
-              </Button>
-            </div>
-          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/10 lg:hidden z-10" />
+          <div className="hidden lg:block absolute inset-y-0 left-0 w-[70%] bg-gradient-to-r from-slate-950 via-slate-950/95 to-transparent z-10" />
+
+          <div className="relative z-40 max-w-7xl mx-auto px-4 md:px-8 w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-2xl"
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-500 text-sm font-medium mb-4 lg:mb-6 border border-orange-500/20">
+                <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+                Serving Texas & Beyond
+              </div>
+              <h1 className="text-4xl md:text-7xl font-extrabold text-white leading-tight mb-4 lg:mb-6 tracking-tight">
+                Building Bridges,<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
+                  Connecting Futures.
+                </span>
+              </h1>
+              <p className="text-lg md:text-xl text-slate-400 mb-8 max-w-xl leading-relaxed">
+                From heavy-duty bridges to excavation and waterfront seawalls. Cody Johnson and the Highland Bridge Co. team deliver rugged, engineered solutions built to last.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} size="lg" className="bg-orange-600 hover:bg-orange-700 text-white font-semibold h-14 px-8 text-lg rounded-xl">
+                  Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+                <Button size="lg" variant="outline" className="border-slate-600 text-white bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-slate-400 h-14 px-8 text-lg rounded-xl">
+                  <PhoneCall className="mr-2 w-5 h-5" /> (214) 668-6311
+                </Button>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
