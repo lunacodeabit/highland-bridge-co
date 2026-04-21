@@ -163,8 +163,9 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
       </AnimatePresence>
 
       {/* Hero Section — scroll-pinned with frame animation.
-          On mobile: shorter pin (180vh) to avoid long scroll-lock. On desktop: 250vh full scrub. */}
-      <section className="relative h-[180vh] md:h-[250vh] bg-slate-950 pt-16 md:pt-20">
+          Outer section is 250vh tall so the sticky inner stays in view for 150vh
+          of scroll, matching ScrollFrameCanvas `scrollRange={1.5}`. */}
+      <section className="relative h-[250vh] bg-slate-950">
         <div className="sticky top-0 h-svh flex items-center overflow-hidden">
           <div className="absolute inset-0 z-0 overflow-hidden">
             <ScrollFrameCanvas
