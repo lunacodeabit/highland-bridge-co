@@ -74,7 +74,7 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-svh bg-slate-950 font-sans text-slate-200 overflow-x-hidden">
+    <div className="min-h-svh bg-slate-950 font-sans text-slate-200 overflow-x-clip">
       {/* Navigation */}
       <nav className="fixed top-0 inset-x-0 z-40 bg-slate-950/85 backdrop-blur-md border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-16 md:h-20 flex items-center justify-between">
@@ -166,7 +166,7 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
           Outer section is 250vh tall so the sticky inner stays in view for 150vh
           of scroll, matching ScrollFrameCanvas `scrollRange={1.5}`. */}
       <section className="relative h-[250vh] bg-slate-950">
-        <div className="sticky top-0 h-svh flex items-center overflow-hidden">
+        <div className="sticky top-0 h-screen flex items-center overflow-hidden">
           <div className="absolute inset-0 z-0 overflow-hidden">
             <ScrollFrameCanvas
               frameCount={V1_FRAME_COUNT}
