@@ -6,10 +6,10 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { ScrollFrameCanvas } from './ScrollFrameCanvas';
 
-// Scroll-frame sequence lives in /public/frames/, 188 frames, pattern: "frame_ (N).jpg".
-// Space and parentheses must be URL-encoded for the browser to fetch them correctly.
-const V1_FRAME_COUNT = 188;
-const getV1FrameUrl = (i: number) => `/frames/frame_%20(${i}).jpg`;
+// Scroll-frame sequence lives in /public/frames-webp/, 94 webp frames (optimized).
+// Pattern: "frame_N.webp" (1..94). The original JPGs in /public/frames/ are gitignored.
+const V1_FRAME_COUNT = 94;
+const getV1FrameUrl = (i: number) => `/frames-webp/frame_${i}.webp`;
 
 const services = [
   {
