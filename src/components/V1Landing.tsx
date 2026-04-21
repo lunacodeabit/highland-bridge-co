@@ -4,6 +4,12 @@ import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
+import { ScrollFrameCanvas } from './ScrollFrameCanvas';
+
+// Scroll-frame sequence lives in /public/frames/, 188 frames, pattern: "frame_ (N).jpg".
+// Space and parentheses must be URL-encoded for the browser to fetch them correctly.
+const V1_FRAME_COUNT = 188;
+const getV1FrameUrl = (i: number) => `/frames/frame_%20(${i}).jpg`;
 
 const services = [
   {
@@ -93,13 +99,10 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
       {/* Hero Section */}
       <section className="relative h-[90vh] flex items-center overflow-hidden bg-slate-950">
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline 
-            className="w-full h-full object-cover opacity-60"
-            src="/codyvideo.mp4"
+          <ScrollFrameCanvas
+            frameCount={V1_FRAME_COUNT}
+            getFrameUrl={getV1FrameUrl}
+            className="w-full h-full opacity-60"
           />
         </div>
 
