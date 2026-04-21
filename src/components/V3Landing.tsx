@@ -74,8 +74,8 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
       {/* TOP BAR - Identical to Wintergreen Style */}
       <div className="bg-slate-950 text-white py-2 px-4 md:px-8 flex justify-between items-center text-xs relative z-50">
         <div className="flex items-center gap-6">
-          <a href="tel:2146686311" className="flex items-center gap-2 hover:text-[#D70C20] transition-colors font-bold">
-            <div className="bg-[#D70C20] p-1.5 rounded-sm"><Phone className="w-3 h-3 fill-white" /></div> (214) 668-6311
+          <a href="tel:4694004200" className="flex items-center gap-2 hover:text-[#C8102E] transition-colors font-bold">
+            <div className="bg-[#C8102E] p-1.5 rounded-sm"><Phone className="w-3 h-3 fill-white" /></div> (469) 400-4200
           </a>
           <span className="hidden md:inline text-slate-700">|</span>
           <div className="hidden md:flex items-center gap-2 text-slate-300 font-bold uppercase tracking-wider">
@@ -83,7 +83,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
           </div>
         </div>
         <div className="flex items-center gap-2">
-           <a href="#contact" className="bg-[#D70C20] text-white px-4 py-1.5 rounded-sm font-bold flex items-center gap-2 hover:bg-white hover:text-black transition-all">
+           <a href="#contact" className="bg-[#C8102E] text-white px-4 py-1.5 rounded-sm font-bold flex items-center gap-2 hover:bg-white hover:text-black transition-all">
              <Mail className="w-3 h-3" /> Get Help Online!
            </a>
         </div>
@@ -93,18 +93,18 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
       <nav className={`sticky top-0 z-[100] transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-1' : 'bg-white/80 backdrop-blur-sm py-3'}`}>
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-black rounded flex items-center justify-center text-white font-black text-2xl">H</div>
+            <img src="/logo.jpg" alt="US Specialized" className="w-12 h-12 rounded object-cover" />
             <div className="flex flex-col">
-              <span className="font-black text-xl leading-none tracking-tighter">HIGHLAND</span>
-              <span className="text-[10px] font-bold tracking-[0.2em] text-slate-500">BRIDGE CO.</span>
+              <span className="font-black text-xl leading-none tracking-tighter">US SPECIALIZED</span>
+              <span className="text-[10px] font-bold tracking-[0.2em] text-slate-500">USSPECIALIZED.COM</span>
             </div>
           </div>
 
           <div className="hidden lg:flex items-center gap-8 font-black text-sm uppercase tracking-tight">
             {['Home', 'Products', 'Services', 'Gallery', 'About Us', 'Contact Us'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="hover:text-[#D70C20] transition-colors py-4 px-2">{item}</a>
+              <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="hover:text-[#C8102E] transition-colors py-4 px-2">{item}</a>
             ))}
-            <Button className="bg-[#D70C20] hover:bg-slate-900 text-white px-8 py-6 rounded-sm font-black text-sm shadow-lg shadow-red-900/20 active:scale-95 transition-all">
+            <Button className="bg-[#C8102E] hover:bg-slate-900 text-white px-8 py-6 rounded-sm font-black text-sm shadow-lg shadow-red-900/20 active:scale-95 transition-all">
               GET A FREE ESTIMATE
             </Button>
           </div>
@@ -122,7 +122,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
           {['Home', 'Products', 'Services', 'Gallery', 'About Us', 'Contact Us'].map((item) => (
             <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} onClick={() => setIsMenuOpen(false)}>{item}</a>
           ))}
-          <Button className="bg-[#D70C20] text-2xl py-10 rounded-sm mt-4">FREE ESTIMATE</Button>
+          <Button className="bg-[#C8102E] text-2xl py-10 rounded-sm mt-4">FREE ESTIMATE</Button>
         </div>
       )}
 
@@ -151,7 +151,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
               className="text-5xl md:text-8xl font-black tracking-tight leading-[0.85] mb-6 drop-shadow-2xl"
             >
               HEAVY-DUTY <br/>
-              <span className="text-[#D70C20]">STEEL BRIDGES</span> <br/>
+              <span className="text-[#C8102E]">STEEL BRIDGES</span> <br/>
               BUILT TO LAST
             </motion.h1>
             <motion.p 
@@ -167,7 +167,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <Button className="bg-[#D70C20] hover:bg-white hover:text-black transition-all text-white px-12 py-9 text-2xl font-black rounded-sm shadow-2xl flex items-center gap-4">
+              <Button className="bg-[#C8102E] hover:bg-white hover:text-black transition-all text-white px-12 py-9 text-2xl font-black rounded-sm shadow-2xl flex items-center gap-4">
                 GET A FREE ESTIMATE <ArrowRight className="w-8 h-8" />
               </Button>
             </motion.div>
@@ -177,7 +177,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
         {/* TRUST STRIP (STAR RATING) */}
         <div className="absolute bottom-10 right-10 z-20 flex flex-col items-end gap-2 text-white">
           <div className="flex gap-1">
-             {[1,2,3,4,5].map(i => <Star key={i} className="w-6 h-6 fill-[#D70C20] text-[#D70C20]" />)}
+             {[1,2,3,4,5].map(i => <Star key={i} className="w-6 h-6 fill-[#C8102E] text-[#C8102E]" />)}
           </div>
           <p className="font-black text-xl uppercase tracking-tighter">5.0 Rating / 250+ Projects</p>
         </div>
@@ -187,7 +187,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
       <section className="py-24 bg-slate-50 relative">
          <div className="container mx-auto px-4">
            <div className="text-center mb-16">
-             <h6 className="text-[#D70C20] font-black uppercase tracking-[0.3em] text-sm mb-4">Why Choose Highland</h6>
+             <h6 className="text-[#C8102E] font-black uppercase tracking-[0.3em] text-sm mb-4">Why Choose Us</h6>
              <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase">Unmatched <span className="text-slate-400">Capabilities</span></h2>
            </div>
            
@@ -208,7 +208,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
                    </div>
                  </div>
                  <div className="p-8 pb-10 flex-grow">
-                   <h4 className="font-black text-2xl uppercase tracking-tight mb-4 text-[#2E7731] group-hover:text-[#D70C20] transition-colors">
+                   <h4 className="font-black text-2xl uppercase tracking-tight mb-4 text-[#2E7731] group-hover:text-[#C8102E] transition-colors">
                      {b.title}
                    </h4>
                    <p className="text-slate-500 font-bold leading-relaxed text-sm">
@@ -230,10 +230,10 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
               <div className="aspect-video overflow-hidden rounded-sm shadow-2xl group">
                 <img src={s.img} alt={s.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#D70C20]/10 -z-10 rounded-full"></div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#C8102E]/10 -z-10 rounded-full"></div>
             </div>
             <div className="w-full md:w-1/2">
-              <h6 className="text-[#D70C20] font-black uppercase tracking-[0.3em] text-sm mb-4">Highland Core Service</h6>
+              <h6 className="text-[#C8102E] font-black uppercase tracking-[0.3em] text-sm mb-4">Our Core Service</h6>
               <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase leading-none mb-6">{s.title}</h2>
               <p className="text-xl text-slate-600 font-medium leading-relaxed mb-8">
                 {s.description}
@@ -254,7 +254,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
       </section>
 
       {/* FINAL CTA - Red Section */}
-      <section className="py-24 bg-[#D70C20] text-white relative overflow-hidden" id="contact">
+      <section className="py-24 bg-[#C8102E] text-white relative overflow-hidden" id="contact">
         <div className="absolute inset-0 bg-[url('/blueprint_bridge.png')] opacity-10 mix-blend-overlay"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-6 drop-shadow-lg">
@@ -267,9 +267,9 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
             <Button className="bg-black hover:bg-white hover:text-black transition-all text-white px-12 py-9 text-2xl font-black rounded-sm shadow-2xl uppercase">
               GET A FREE QUOTE
             </Button>
-            <a href="tel:2146686311">
+            <a href="tel:4694004200">
             <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black px-12 py-9 text-2xl font-black rounded-sm bg-transparent uppercase">
-              CALL (214) (214) 668-6311
+              CALL (214) (469) 400-4200
             </Button>
             </a>
           </div>
@@ -282,10 +282,10 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
             <div className="col-span-1 md:col-span-1">
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-12 h-12 bg-[#D70C20] rounded flex items-center justify-center text-white font-black text-2xl">H</div>
+                <img src="/logo.jpg" alt="US Specialized" className="w-12 h-12 rounded object-cover" />
                 <div className="flex flex-col">
-                  <span className="font-black text-xl leading-none tracking-tighter">HIGHLAND</span>
-                  <span className="text-[10px] font-bold tracking-[0.2em] text-slate-500">BRIDGE CO.</span>
+                  <span className="font-black text-xl leading-none tracking-tighter">US SPECIALIZED</span>
+                  <span className="text-[10px] font-bold tracking-[0.2em] text-slate-500">USSPECIALIZED.COM</span>
                 </div>
               </div>
               <p className="text-slate-500 font-bold text-sm leading-relaxed mb-8 uppercase tracking-tight">
@@ -293,7 +293,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
               </p>
               <div className="flex gap-4">
                 {[Globe, Activity, Mail, Phone].map((Icon, i) => (
-                  <div key={i} className="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-[#D70C20] transition-colors cursor-pointer group">
+                  <div key={i} className="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-[#C8102E] transition-colors cursor-pointer group">
                     <Icon size={18} className="text-slate-400 group-hover:text-white" />
                   </div>
                 ))}
@@ -301,35 +301,35 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
             </div>
 
             <div>
-              <h4 className="font-black uppercase tracking-widest text-[#D70C20] mb-8">Navigation</h4>
+              <h4 className="font-black uppercase tracking-widest text-[#C8102E] mb-8">Navigation</h4>
               <ul className="flex flex-col gap-4 text-slate-400 font-black text-xs uppercase tracking-widest">
                 <li className="hover:text-white cursor-pointer transition-colors">Residential Projects</li>
                 <li className="hover:text-white cursor-pointer transition-colors">Commercial Scale</li>
                 <li className="hover:text-white cursor-pointer transition-colors">Our Gallery</li>
-                <li className="hover:text-white cursor-pointer transition-colors">About Highland</li>
+                <li className="hover:text-white cursor-pointer transition-colors">About Us</li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-black uppercase tracking-widest text-[#D70C20] mb-8">Contact Us</h4>
+              <h4 className="font-black uppercase tracking-widest text-[#C8102E] mb-8">Contact Us</h4>
               <ul className="flex flex-col gap-6 text-slate-400 font-bold text-sm">
                 <li className="flex items-start gap-4">
-                  <MapPin className="text-[#D70C20] w-5 h-5 shrink-0" />
+                  <MapPin className="text-[#C8102E] w-5 h-5 shrink-0" />
                   <span>Installing Nationwide</span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <Phone className="text-[#D70C20] w-5 h-5 shrink-0" />
-                  <span>(214) 668-6311</span>
+                  <Phone className="text-[#C8102E] w-5 h-5 shrink-0" />
+                  <span>(469) 400-4200</span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <Mail className="text-[#D70C20] w-5 h-5 shrink-0" />
-                  <span>info@highlandbridge.com</span>
+                  <Mail className="text-[#C8102E] w-5 h-5 shrink-0" />
+                  <span>info@usspecialized.com</span>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-black uppercase tracking-widest text-[#D70C20] mb-8">Installation Map</h4>
+              <h4 className="font-black uppercase tracking-widest text-[#C8102E] mb-8">Installation Map</h4>
               <div className="aspect-square bg-slate-900 rounded-sm overflow-hidden grayscale border border-slate-800 opacity-50 hover:opacity-100 transition-opacity">
                 <iframe 
                   title="map"
@@ -342,7 +342,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
 
           <div className="pt-12 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-slate-600 font-bold text-[10px] uppercase tracking-[0.2em]">
-              © 2026 Highland Bridge Co. All Rights Reserved.
+              © 2026 US Specialized All Rights Reserved.
             </p>
             <div className="flex gap-8 text-[10px] font-black uppercase text-slate-700 tracking-widest">
               <span className="hover:text-white cursor-pointer transition-colors">Privacy Policy</span>

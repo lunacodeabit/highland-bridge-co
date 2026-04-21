@@ -6,7 +6,7 @@ export const Metadata = () => {
     "@type": "Organization",
     "name": SITE.company,
     "url": SITE.website,
-    "logo": `${SITE.website}/logo.png`,
+    "logo": `${SITE.website}/logo.jpg`,
     "description": "Custom steel bridge construction and heavy infrastructure services. Made in the USA.",
     "telephone": SITE.phone,
     "email": SITE.email,

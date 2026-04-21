@@ -16,7 +16,7 @@ export function ChatWidget() {
     {
       id: '1',
       sender: 'ai',
-      text: "Hi there! I'm the Highland Bridge AI assistant. Are you looking to get a quote from Cody or do you have a question about our services?",
+      text: "Hi there! I'm the US Specialized AI assistant. Are you looking to get a quote or do you have a question about our services?",
     },
   ]);
   const [inputValue, setInputValue] = useState('');
@@ -45,7 +45,7 @@ export function ChatWidget() {
       const newAiMsg: Message = {
         id: (Date.now() + 1).toString(),
         sender: 'ai',
-        text: "Thanks for reaching out! Cody typically handles these requests directly. Could you provide a quick phone number or email so he can call you?",
+        text: "Thanks for reaching out! Our team typically handles these requests directly. Could you provide a quick phone number or email so we can reach out?",
       };
       setMessages((prev) => [...prev, newAiMsg]);
     }, 1500);
@@ -60,7 +60,7 @@ export function ChatWidget() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 p-4 bg-orange-600 text-white rounded-full shadow-2xl hover:bg-orange-700 transition-colors flex items-center gap-2 group"
+            className="fixed bottom-6 right-6 z-50 p-4 bg-red-600 text-white rounded-full shadow-2xl hover:bg-red-700 transition-colors flex items-center gap-2 group"
           >
             <MessageSquare size={24} />
             <span className="hidden group-hover:inline-block max-w-0 group-hover:max-w-xs overflow-hidden transition-all duration-300 ease-in-out whitespace-nowrap font-medium pr-1">
@@ -82,12 +82,12 @@ export function ChatWidget() {
             {/* Header */}
             <div className="bg-slate-800 p-4 flex justify-between items-center border-b border-slate-700">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center">
                   <Bot size={18} className="text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white">Highland Assistant</h3>
-                  <p className="text-xs text-orange-400 flex items-center gap-1">
+                  <h3 className="font-semibold text-white">US Specialized Assistant</h3>
+                  <p className="text-xs text-red-400 flex items-center gap-1">
                     <span className="w-2 h-2 rounded-full bg-green-500 inline-block"></span>
                     Online
                   </p>
@@ -105,7 +105,7 @@ export function ChatWidget() {
                   <div
                     className={`max-w-[80%] p-3 rounded-2xl text-sm ${
                       msg.sender === 'user'
-                        ? 'bg-orange-600 text-white rounded-br-sm'
+                        ? 'bg-red-600 text-white rounded-br-sm'
                         : 'bg-slate-800 text-slate-200 border border-slate-700 rounded-bl-sm'
                     }`}
                   >
@@ -138,9 +138,9 @@ export function ChatWidget() {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Type a message..."
-                  className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-400 focus-visible:ring-orange-600"
+                  className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-400 focus-visible:ring-red-600"
                 />
-                <Button type="submit" size="icon" className="bg-orange-600 hover:bg-orange-700 text-white shrink-0">
+                <Button type="submit" size="icon" className="bg-red-600 hover:bg-red-700 text-white shrink-0">
                   <Send size={18} />
                 </Button>
               </form>

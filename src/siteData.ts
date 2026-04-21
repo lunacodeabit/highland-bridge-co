@@ -1,17 +1,17 @@
 // ═══════════════════════════════════════════
 // 🛡️ SAGRADO — Single Source of Truth
-// Highland Bridge Co. — Business Information
+// US Specialized — Business Information
 // ═══════════════════════════════════════════
 
 export const SITE = {
-  company: 'Highland Bridge Co.',
-  phone: '(214) 668-6311',
-  phoneTel: '2146686311',
-  email: 'info@highlandbridge.com',
+  company: 'US Specialized',
+  phone: '(469) 400-4200',
+  phoneTel: '4694004200',
+  email: 'info@usspecialized.com',
   tagline: 'Installing Anywhere in the U.S.',
-  facebook: 'https://www.facebook.com/p/Highland-Bridge-Co-100086236734310/',
-  website: 'http://www.myrailcarbridge.com',
-  founder: 'Cody Johnson',
+  facebook: 'https://www.facebook.com/usspecialized',
+  website: 'https://www.usspecialized.com',
+  founder: 'The US Specialized Team',
   experience: '20+',
   year: new Date().getFullYear(),
 };
