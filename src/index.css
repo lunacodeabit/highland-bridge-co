@@ -125,10 +125,79 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
+
+  /* ===========================================
+     MOBILE-FIRST FOUNDATIONS
+     =========================================== */
+
   html {
     @apply font-sans;
+    /* Smoother font rendering on mobile */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
   }
+
+  body {
+    @apply bg-background text-foreground;
+    /* Hard-block accidental horizontal overflow (long hero words, absolute elements) */
+    overflow-x: clip;
+    /* Respect iOS notch / Android gesture bar */
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    /* Fluid base type: 15px mobile → 16px desktop */
+    font-size: clamp(0.9375rem, 0.875rem + 0.3vw, 1rem);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Prevent iOS form zoom (<16px input triggers zoom) */
+  input, select, textarea {
+    font-size: max(16px, 1em);
+  }
+
+  /* Touch-friendly tap targets on mobile — 44x44 min (WCAG AAA) */
+  @media (max-width: 767px) {
+    button, a[role="button"], [type="button"], [type="submit"] {
+      min-height: 44px;
+    }
+  }
+
+  /* Media defaults — prevent layout shift + better mobile perf */
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  video[autoplay] {
+    /* Allow video background to fill while preventing overflow */
+    object-fit: cover;
+  }
+
+  /* Respect reduced-motion preference (battery + a11y) */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Safe-area helpers — used by fixed/absolute bottom-pinned UI */
+  .safe-bottom { padding-bottom: calc(env(safe-area-inset-bottom) + 0.5rem); }
+  .safe-top    { padding-top: calc(env(safe-area-inset-top) + 0.5rem); }
+
+  /* Dynamic viewport heights — avoids iOS 100vh bug w/ URL bar */
+  .h-dvh { height: 100dvh; }
+  .min-h-dvh { min-height: 100dvh; }
+  .h-svh { height: 100svh; }
+  .min-h-svh { min-height: 100svh; }
+
+  /* Fluid display headings (use `.h-display` / `.h-xl` / `.h-lg`) */
+  .h-display { font-size: clamp(2.25rem, 8vw + 0.5rem, 6rem); line-height: 0.95; }
+  .h-xl      { font-size: clamp(1.875rem, 5vw + 0.5rem, 4.5rem); line-height: 1.05; }
+  .h-lg      { font-size: clamp(1.5rem, 3vw + 0.5rem, 3rem); line-height: 1.15; }
 }

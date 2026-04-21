@@ -83,14 +83,12 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
           </div>
         </div>
         <div className="flex items-center gap-2">
-           <a href="#contact" className="bg-[#C8102E] text-white px-4 py-1.5 rounded-sm font-bold flex items-center gap-2 hover:bg-white hover:text-black transition-all">
-             <Mail className="w-3 h-3" /> Get Help Online!
-           </a>
+           <a href="#contact" className="bg-[#C8102E] text-white px-3 md:px-4 py-1.5 rounded-sm font-bold flex items-center gap-2 hover:bg-white hover:text-black transition-all whitespace-nowrap"><Mail className="w-3 h-3" /><span className="hidden sm:inline">Get Help Online!</span><span className="sm:hidden">Quote</span></a>
         </div>
       </div>
 
       {/* MAIN NAV - Sticky */}
-      <nav className={`sticky top-0 z-[100] transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-1' : 'bg-white/80 backdrop-blur-sm py-3'}`}>
+      <nav className={`sticky top-0 z-100 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-1' : 'bg-white/80 backdrop-blur-sm py-3'}`}>
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <img src="/logo.jpg" alt="US Specialized" className="w-12 h-12 rounded object-cover" />
@@ -117,7 +115,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
 
       {/* MOBILE MENU */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-[110] bg-slate-950 text-white p-8 flex flex-col gap-8 text-3xl font-black">
+        <div className="fixed inset-0 z-110 bg-slate-950 text-white p-8 flex flex-col gap-8 text-3xl font-black">
           <button className="absolute top-8 right-8" onClick={() => setIsMenuOpen(false)}><X className="w-10 h-10" /></button>
           {['Home', 'Products', 'Services', 'Gallery', 'About Us', 'Contact Us'].map((item) => (
             <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} onClick={() => setIsMenuOpen(false)}>{item}</a>
@@ -127,7 +125,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
       )}
 
       {/* HERO SECTION - True Wintergreen Style */}
-      <section className="relative h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-svh md:h-[90vh] flex items-center overflow-hidden pt-4 md:pt-0">
         <div className="absolute inset-0 bg-black">
           <video 
             autoPlay 
@@ -139,7 +137,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
             className="absolute inset-0 w-full h-full object-cover opacity-70"
             src="/codyvideo.mp4"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent"></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -148,7 +146,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-5xl md:text-8xl font-black tracking-tight leading-[0.85] mb-6 drop-shadow-2xl"
+              className="font-black tracking-tight leading-[0.9] mb-5 md:mb-6 drop-shadow-2xl text-[clamp(2.5rem,11vw,6rem)] md:text-8xl"
             >
               HEAVY-DUTY <br/>
               <span className="text-[#C8102E]">STEEL BRIDGES</span> <br/>
@@ -158,7 +156,7 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-3xl text-slate-100 mb-10 max-w-2xl font-bold uppercase tracking-tight"
+              className="text-base md:text-3xl text-slate-100 mb-6 md:mb-10 max-w-2xl font-bold uppercase tracking-tight"
             >
               20+ Years of Experience in Precision Infrastructure & Commercial Construction.
             </motion.p>
@@ -167,15 +165,15 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <Button className="bg-[#C8102E] hover:bg-white hover:text-black transition-all text-white px-12 py-9 text-2xl font-black rounded-sm shadow-2xl flex items-center gap-4">
-                GET A FREE ESTIMATE <ArrowRight className="w-8 h-8" />
+              <Button className="bg-[#C8102E] hover:bg-white hover:text-black transition-all text-white px-6 md:px-12 h-14 md:h-auto md:py-9 text-base md:text-2xl font-black rounded-sm shadow-2xl flex items-center gap-3 md:gap-4 w-full sm:w-auto">
+                GET A FREE ESTIMATE <ArrowRight className="w-5 h-5 md:w-8 md:h-8" />
               </Button>
             </motion.div>
           </div>
         </div>
 
         {/* TRUST STRIP (STAR RATING) */}
-        <div className="absolute bottom-10 right-10 z-20 flex flex-col items-end gap-2 text-white">
+        <div className="hidden md:flex absolute bottom-10 right-10 z-20 flex-col items-end gap-2 text-white">
           <div className="flex gap-1">
              {[1,2,3,4,5].map(i => <Star key={i} className="w-6 h-6 fill-[#C8102E] text-[#C8102E]" />)}
           </div>
@@ -184,14 +182,9 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
       </section>
 
       {/* FEATURE CARDS - Redesigned to match Wintergreen Product Aesthetic */}
-      <section className="py-24 bg-slate-50 relative">
-         <div className="container mx-auto px-4">
-           <div className="text-center mb-16">
-             <h6 className="text-[#C8102E] font-black uppercase tracking-[0.3em] text-sm mb-4">Why Choose Us</h6>
-             <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase">Unmatched <span className="text-slate-400">Capabilities</span></h2>
-           </div>
+      <section className="py-16 md:py-24 bg-slate-50 relative"><div className="container mx-auto px-5 md:px-4"><div className="text-center mb-10 md:mb-16"><h6 className="text-[#C8102E] font-black uppercase tracking-[0.3em] text-xs md:text-sm mb-3 md:mb-4">Why Choose Us</h6><h2 className="text-3xl md:text-6xl font-black tracking-tight uppercase leading-tight">Unmatched <span className="text-slate-400">Capabilities</span></h2></div>
            
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
              {benefits.map((b, i) => (
                <motion.div 
                  key={i} 
@@ -201,14 +194,14 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
                  transition={{ delay: i * 0.1 }}
                  className="bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] overflow-hidden group hover:shadow-2xl hover:shadow-green-900/10 transition-all duration-500 transform hover:-translate-y-2 flex flex-col border border-slate-100"
                 >
-                 <div className="h-56 relative overflow-hidden">
+                 <div className="h-48 md:h-56 relative overflow-hidden">
                    <img src={b.img} alt={b.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-2xl shadow-xl text-[#2E7731]">
                      {b.icon}
                    </div>
                  </div>
-                 <div className="p-8 pb-10 flex-grow">
-                   <h4 className="font-black text-2xl uppercase tracking-tight mb-4 text-[#2E7731] group-hover:text-[#C8102E] transition-colors">
+                 <div className="p-6 md:p-8 pb-8 md:pb-10 grow">
+                   <h4 className="font-black text-xl md:text-2xl uppercase tracking-tight mb-3 md:mb-4 text-[#2E7731] group-hover:text-[#C8102E] transition-colors">
                      {b.title}
                    </h4>
                    <p className="text-slate-500 font-bold leading-relaxed text-sm">
@@ -223,9 +216,9 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
       </section>
 
       {/* SERVICES BLOCK 1 - Alternating */}
-      <section className="py-24 bg-white" id="services">
+      <section className="py-16 md:py-24 bg-white" id="services">
         {services.map((s, i) => (
-          <div key={i} className={`container mx-auto px-4 flex flex-col md:flex-row items-center gap-16 mb-24 last:mb-0 ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+          <div key={i} className={`container mx-auto px-5 md:px-4 flex flex-col md:flex-row items-center gap-8 md:gap-16 mb-16 md:mb-24 last:mb-0 ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
             <div className="w-full md:w-1/2 relative">
               <div className="aspect-video overflow-hidden rounded-sm shadow-2xl group">
                 <img src={s.img} alt={s.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -234,8 +227,8 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
             </div>
             <div className="w-full md:w-1/2">
               <h6 className="text-[#C8102E] font-black uppercase tracking-[0.3em] text-sm mb-4">Our Core Service</h6>
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase leading-none mb-6">{s.title}</h2>
-              <p className="text-xl text-slate-600 font-medium leading-relaxed mb-8">
+              <h2 className="text-3xl md:text-5xl font-black tracking-tight uppercase leading-tight md:leading-none mb-4 md:mb-6">{s.title}</h2>
+              <p className="text-base md:text-xl text-slate-600 font-medium leading-relaxed mb-6 md:mb-8">
                 {s.description}
               </p>
               <div className="flex flex-col gap-4 mb-10">
@@ -245,30 +238,27 @@ export default function V3Landing({ }: { setVersion: (v: number) => void }) {
                    </div>
                  ))}
               </div>
-              <Button className="bg-[#2E7731] hover:bg-black text-white px-10 py-7 text-lg font-black rounded-sm shadow-xl transition-all">
-                LEARN MORE
-              </Button>
+              <Button className="bg-[#2E7731] hover:bg-black text-white px-6 md:px-10 h-12 md:h-auto md:py-7 text-base md:text-lg font-black rounded-sm shadow-xl transition-all w-full sm:w-auto">LEARN MORE</Button>
             </div>
           </div>
         ))}
       </section>
 
       {/* FINAL CTA - Red Section */}
-      <section className="py-24 bg-[#C8102E] text-white relative overflow-hidden" id="contact">
+      <section className="py-16 md:py-24 bg-[#C8102E] text-white relative overflow-hidden" id="contact">
         <div className="absolute inset-0 bg-[url('/blueprint_bridge.png')] opacity-10 mix-blend-overlay"></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-6 drop-shadow-lg">
+        <div className="container mx-auto px-5 md:px-4 text-center relative z-10"><h2 className="font-black tracking-tighter uppercase mb-4 md:mb-6 drop-shadow-lg text-[clamp(2.5rem,11vw,5.5rem)] md:text-7xl leading-[0.95]">
             Ready to Build?
           </h2>
-          <p className="text-2xl md:text-3xl font-bold mb-12 max-w-3xl mx-auto opacity-90 uppercase tracking-tight">
+          <p className="text-base md:text-3xl font-bold mb-8 md:mb-12 max-w-3xl mx-auto opacity-90 uppercase tracking-tight">
             Consult with our engineering team today for your nationwide infrastructure project.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Button className="bg-black hover:bg-white hover:text-black transition-all text-white px-12 py-9 text-2xl font-black rounded-sm shadow-2xl uppercase">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
+            <Button className="bg-black hover:bg-white hover:text-black transition-all text-white px-6 md:px-12 h-14 md:h-auto md:py-9 text-base md:text-2xl font-black rounded-sm shadow-2xl uppercase w-full sm:w-auto">
               GET A FREE QUOTE
             </Button>
             <a href="tel:4694004200">
-            <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black px-12 py-9 text-2xl font-black rounded-sm bg-transparent uppercase">
+            <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black px-6 md:px-12 h-14 md:h-auto md:py-9 text-base md:text-2xl font-black rounded-sm bg-transparent uppercase w-full sm:w-auto">
               CALL (214) (469) 400-4200
             </Button>
             </a>

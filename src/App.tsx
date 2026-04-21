@@ -39,8 +39,8 @@ export default function App() {
       )}
       
       {/* FLOATING VERSION SWITCHER - REVIEWER TOOLBAR */}
-      <div className="fixed bottom-6 left-6 z-[200] flex gap-2 bg-black/80 backdrop-blur-md p-2 rounded-2xl border border-white/10 shadow-2xl scale-90 sm:scale-100 origin-bottom-left transition-all hover:scale-105 group">
-        <div className="flex flex-col gap-1 pr-2 border-r border-white/10 mr-1 hidden sm:flex">
+      <div className="fixed bottom-6 left-6 z-200 flex gap-2 bg-black/80 backdrop-blur-md p-2 rounded-2xl border border-white/10 shadow-2xl scale-90 sm:scale-100 origin-bottom-left transition-all hover:scale-105 group">
+        <div className="hidden sm:flex flex-col gap-1 pr-2 border-r border-white/10 mr-1">
           <span className="text-[8px] font-black uppercase text-white/50 tracking-tighter">Reviewer</span>
           <span className="text-[10px] font-black uppercase text-white tracking-widest leading-none underline decoration-[#D70C20]">Toolbar</span>
         </div>
