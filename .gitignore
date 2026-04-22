@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Private proposals / internal docs (do NOT deploy)
+CLIENT_PROPOSAL.html
+*.proposal.html
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
