@@ -16,49 +16,49 @@ const services = [
   {
     title: 'Bridge Construction',
     description: 'Custom-built bridges with weight capacities up to 300,000 lbs. Lengths from 10\' to 180\' and widths up to 24\'. Made in the U.S.A.',
-    icon: <Truck className="w-6 h-6 text-red-500" />,
+    icon: <Truck className="w-6 h-6 text-[#a31a1a]" />,
     img: '/blueprint_bridge.png'
   },
   {
     title: 'Excavation Services',
     description: 'Professional excavation, land clearing, and site preparation for residential and commercial projects.',
-    icon: <Construction className="w-6 h-6 text-red-500" />,
+    icon: <Construction className="w-6 h-6 text-[#a31a1a]" />,
     img: '/excavation.png'
   },
   {
     title: 'Boat Docks & Boat Houses',
     description: 'Custom-built boat docks and boat houses engineered to withstand the elements and enhance your waterfront.',
-    icon: <Anchor className="w-6 h-6 text-red-500" />,
+    icon: <Anchor className="w-6 h-6 text-[#a31a1a]" />,
     img: '/boat_dock.png'
   },
   {
     title: 'Seawall Construction',
     description: 'Sturdy seawalls designed to prevent erosion and protect your valuable waterfront property for decades.',
-    icon: <Waves className="w-6 h-6 text-red-500" />,
+    icon: <Waves className="w-6 h-6 text-[#a31a1a]" />,
     img: '/seawall.png'
   },
   {
     title: 'Retaining Walls',
     description: 'Engineered retaining walls that stabilize slopes, manage water runoff, and add structural integrity to your land.',
-    icon: <Mountain className="w-6 h-6 text-red-500" />,
+    icon: <Mountain className="w-6 h-6 text-[#a31a1a]" />,
     img: '/seawall.png'
   },
   {
     title: 'Rock & Asphalt Roads',
     description: 'Durable rock and asphalt road construction for private properties, ranches, and rural access routes.',
-    icon: <Route className="w-6 h-6 text-red-500" />,
+    icon: <Route className="w-6 h-6 text-[#a31a1a]" />,
     img: '/excavation.png'
   },
   {
     title: 'Parking Lots',
     description: 'Professional parking lot construction and grading for commercial and residential properties.',
-    icon: <ParkingSquare className="w-6 h-6 text-red-500" />,
+    icon: <ParkingSquare className="w-6 h-6 text-[#a31a1a]" />,
     img: '/excavation.png'
   },
   {
     title: 'Drainage Systems',
     description: 'Complete drainage system design and installation to manage water flow and protect your property from flooding.',
-    icon: <Droplets className="w-6 h-6 text-red-500" />,
+    icon: <Droplets className="w-6 h-6 text-[#a31a1a]" />,
     img: '/seawall.png'
   }
 ];
@@ -74,9 +74,9 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-svh bg-slate-950 font-sans text-slate-200 overflow-x-clip">
+    <div className="min-h-svh bg-[#293049] font-sans text-slate-200 overflow-x-clip">
       {/* Navigation */}
-      <nav className="fixed top-0 inset-x-0 z-40 bg-slate-950/85 backdrop-blur-md border-b border-slate-800">
+      <nav className="fixed top-0 inset-x-0 z-40 bg-[#293049]/85 backdrop-blur-md border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-16 md:h-20 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2 md:gap-3 min-w-0">
             <img src="/logo.jpg" alt="US Specialized" className="w-10 h-10 md:w-12 md:h-12 rounded-lg object-cover shrink-0" />
@@ -86,17 +86,17 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
             <a href="#services" className="hover:text-white transition-colors">Services</a>
             <a href="#about" className="hover:text-white transition-colors">About Us</a>
-            <a href="tel:4694004200" className="flex items-center gap-2 text-white hover:text-red-500 transition-colors">
+            <a href="tel:4694004200" className="flex items-center gap-2 text-white hover:text-[#a31a1a] transition-colors">
               <Phone size={16} />
               (469) 400-4200
             </a>
-            <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-red-600 hover:bg-red-700 text-white border-0">
+            <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-[#a31a1a] hover:bg-[#8a1616] text-white border-0">
               Get a Quote
             </Button>
           </div>
           {/* Mobile controls: quick-call + hamburger */}
           <div className="flex md:hidden items-center gap-1">
-            <a href="tel:4694004200" aria-label="Call (469) 400-4200" className="w-11 h-11 flex items-center justify-center rounded-full bg-red-600 text-white active:scale-95 transition-transform">
+            <a href="tel:4694004200" aria-label="Call (469) 400-4200" className="w-11 h-11 flex items-center justify-center rounded-full bg-[#a31a1a] text-white active:scale-95 transition-transform">
               <Phone size={18} />
             </a>
             <button
@@ -120,7 +120,7 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 md:hidden bg-slate-950/98 backdrop-blur-xl pt-20 px-6 safe-bottom"
+            className="fixed inset-0 z-50 md:hidden bg-[#293049]/98 backdrop-blur-xl pt-20 px-6 safe-bottom"
             onClick={() => setMenuOpen(false)}
           >
             <motion.div
@@ -153,7 +153,7 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
               </a>
               <Button
                 onClick={() => { setMenuOpen(false); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="mt-2 h-14 bg-red-600 hover:bg-red-700 text-white text-lg font-bold rounded-xl"
+                className="mt-2 h-14 bg-[#a31a1a] hover:bg-[#8a1616] text-white text-lg font-bold rounded-xl"
               >
                 Get a Free Quote
               </Button>
@@ -165,7 +165,7 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
       {/* Hero Section — scroll-pinned with frame animation.
           Outer section is 250vh tall so the sticky inner stays in view for 150vh
           of scroll, matching ScrollFrameCanvas `scrollRange={1.5}`. */}
-      <section className="relative h-[250vh] bg-slate-950">
+      <section className="relative h-[250vh] bg-[#293049]">
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
           <div className="absolute inset-0 z-0 overflow-hidden">
             <ScrollFrameCanvas
@@ -176,8 +176,8 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
             />
           </div>
 
-          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/80 to-slate-950/30 lg:hidden z-10" />
-          <div className="hidden lg:block absolute inset-y-0 left-0 w-[70%] bg-linear-to-r from-slate-950 via-slate-950/95 to-transparent z-10" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#293049] via-[#293049]/80 to-[#293049]/30 lg:hidden z-10" />
+          <div className="hidden lg:block absolute inset-y-0 left-0 w-[70%] bg-linear-to-r from-[#293049] via-[#293049]/95 to-transparent z-10" />
 
           <div className="relative z-40 max-w-7xl mx-auto px-5 md:px-8 w-full">
             <motion.div
@@ -186,13 +186,13 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
               transition={{ duration: 0.8 }}
               className="max-w-2xl"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 text-red-500 text-xs md:text-sm font-medium mb-4 lg:mb-6 border border-red-500/20">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#a31a1a]/10 text-[#a31a1a] text-xs md:text-sm font-medium mb-4 lg:mb-6 border border-[#a31a1a]/20">
+                <span className="w-2 h-2 rounded-full bg-[#a31a1a] animate-pulse"></span>
                 Serving Texas & Beyond
               </div>
               <h1 className="font-extrabold text-white leading-[1.05] mb-4 lg:mb-6 tracking-tight text-[clamp(2.25rem,9vw,4.5rem)] lg:text-7xl">
                 Building Bridges,<br/>
-                <span className="text-transparent bg-clip-text bg-linear-to-r from-red-400 to-red-600">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-[#c33535] to-[#a31a1a]">
                   Connecting Futures.
                 </span>
               </h1>
@@ -200,7 +200,7 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
                 From heavy-duty bridges to excavation and waterfront seawalls. The US Specialized team delivers rugged, engineered solutions built to last.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} size="lg" className="bg-red-600 hover:bg-red-700 text-white font-semibold h-12 md:h-14 px-6 md:px-8 text-base md:text-lg rounded-xl w-full sm:w-auto">
+                <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} size="lg" className="bg-[#a31a1a] hover:bg-[#8a1616] text-white font-semibold h-12 md:h-14 px-6 md:px-8 text-base md:text-lg rounded-xl w-full sm:w-auto">
                   Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
                 <a
@@ -233,13 +233,13 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="h-full"
               >
-                <Card className="bg-slate-950 border-slate-800 overflow-hidden group hover:border-red-500/50 transition-colors h-full">
+                <Card className="bg-[#293049] border-slate-800 overflow-hidden group hover:border-[#a31a1a]/50 transition-colors h-full">
                   <div className="h-40 md:h-48 overflow-hidden relative">
                     <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-colors z-10" />
                     <img src={service.img} alt={service.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   </div>
                   <CardContent className="p-5 md:p-8">
-                     <div className="w-11 h-11 md:w-12 md:h-12 bg-red-950/50 rounded-xl flex items-center justify-center mb-4 md:mb-6 border border-red-500/20">
+                     <div className="w-11 h-11 md:w-12 md:h-12 bg-[#a31a1a]/15 rounded-xl flex items-center justify-center mb-4 md:mb-6 border border-[#a31a1a]/20">
                         {service.icon}
                      </div>
                      <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3">{service.title}</h3>
@@ -253,7 +253,7 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 md:py-24 bg-slate-950 relative overflow-hidden">
+      <section id="about" className="py-16 md:py-24 bg-[#293049] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
           <motion.div {...fadeIn} className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 md:mb-4">About US Specialized</h2>
@@ -272,7 +272,7 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
                 { label: 'Railing Designs', value: '20+ options' },
               ].map((spec, i) => (
                 <div key={i} className="text-center p-4 md:p-6 bg-slate-900/50 rounded-2xl border border-slate-800">
-                  <p className="text-lg md:text-3xl font-bold text-red-500 mb-1 md:mb-2 leading-tight">{spec.value}</p>
+                  <p className="text-lg md:text-3xl font-bold text-[#a31a1a] mb-1 md:mb-2 leading-tight">{spec.value}</p>
                   <p className="text-slate-400 text-[10px] md:text-sm uppercase tracking-wider">{spec.label}</p>
                 </div>
               ))}
@@ -281,24 +281,24 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
 
           <div className="grid md:grid-cols-3 gap-6 md:gap-8 text-center">
             <motion.div {...fadeIn} className="p-4 md:p-6">
-              <div className="w-12 h-12 mx-auto bg-red-950/50 rounded-xl flex items-center justify-center mb-4 md:mb-6 border border-red-500/20">
-                <Truck className="text-red-500 w-6 h-6" />
+              <div className="w-12 h-12 mx-auto bg-[#a31a1a]/15 rounded-xl flex items-center justify-center mb-4 md:mb-6 border border-[#a31a1a]/20">
+                <Truck className="text-[#a31a1a] w-6 h-6" />
               </div>
               <h3 className="text-lg md:text-xl font-bold text-white mb-2">Made in the U.S.A.</h3>
               <p className="text-slate-400 text-sm md:text-base">Every bridge is proudly built in the United States. We install anywhere in the country — from Texas to coast to coast.</p>
             </motion.div>
             
             <motion.div {...fadeIn} transition={{...fadeIn.transition, delay: 0.1}} className="p-4 md:p-6">
-              <div className="w-12 h-12 mx-auto bg-red-950/50 rounded-xl flex items-center justify-center mb-4 md:mb-6 border border-red-500/20">
-                <Construction className="text-red-500 w-6 h-6" />
+              <div className="w-12 h-12 mx-auto bg-[#a31a1a]/15 rounded-xl flex items-center justify-center mb-4 md:mb-6 border border-[#a31a1a]/20">
+                <Construction className="text-[#a31a1a] w-6 h-6" />
               </div>
               <h3 className="text-lg md:text-xl font-bold text-white mb-2">Color Options</h3>
               <p className="text-slate-400 text-sm md:text-base">Available in Black, Brown, White, Grey, Green, and Patina finishes to match your property's aesthetic perfectly.</p>
             </motion.div>
             
             <motion.div {...fadeIn} transition={{...fadeIn.transition, delay: 0.2}} className="p-4 md:p-6">
-              <div className="w-12 h-12 mx-auto bg-red-950/50 rounded-xl flex items-center justify-center mb-4 md:mb-6 border border-red-500/20">
-                <Waves className="text-red-500 w-6 h-6" />
+              <div className="w-12 h-12 mx-auto bg-[#a31a1a]/15 rounded-xl flex items-center justify-center mb-4 md:mb-6 border border-[#a31a1a]/20">
+                <Waves className="text-[#a31a1a] w-6 h-6" />
               </div>
               <h3 className="text-lg md:text-xl font-bold text-white mb-2">20+ Railing Designs</h3>
               <p className="text-slate-400 text-sm md:text-base">Choose from over 20 different railing designs to customize the look and safety features of your bridge installation.</p>
@@ -309,7 +309,7 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
 
       {/* CTA / Contact */}
       <section id="contact" className="py-16 md:py-24 relative overflow-hidden bg-slate-900 border-t border-slate-800">
-        <div className="absolute top-0 right-0 w-200 h-200 bg-red-600/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-200 h-200 bg-[#a31a1a]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
@@ -321,7 +321,7 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
               <ul className="space-y-3 md:space-y-4 mb-8 md:mb-10">
                 {['20+ Years of Experience', 'Heavy Machinery Fleet', 'Custom Engineering Solutions', 'Free On-site Estimates'].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-white font-medium">
-                    <CheckCircle2 className="text-red-500 w-5 h-5 md:w-6 md:h-6 shrink-0" />
+                    <CheckCircle2 className="text-[#a31a1a] w-5 h-5 md:w-6 md:h-6 shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -333,12 +333,12 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">Request an Estimate</h3>
                 <form className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                    <Input placeholder="First Name" className="bg-slate-950 border-slate-800 text-white h-12" />
-                    <Input placeholder="Last Name" className="bg-slate-950 border-slate-800 text-white h-12" />
+                    <Input placeholder="First Name" className="bg-[#293049] border-slate-800 text-white h-12" />
+                    <Input placeholder="Last Name" className="bg-[#293049] border-slate-800 text-white h-12" />
                   </div>
-                  <Input placeholder="Phone or Email" inputMode="email" className="bg-slate-950 border-slate-800 text-white h-12" />
-                  <Textarea placeholder="Project Description..." className="bg-slate-950 border-slate-800 text-white h-28 md:h-32 resize-none" />
-                  <Button className="w-full h-14 mt-2 bg-red-600 hover:bg-red-700 text-white text-base md:text-lg font-semibold rounded-xl">
+                  <Input placeholder="Phone or Email" inputMode="email" className="bg-[#293049] border-slate-800 text-white h-12" />
+                  <Textarea placeholder="Project Description..." className="bg-[#293049] border-slate-800 text-white h-28 md:h-32 resize-none" />
+                  <Button className="w-full h-14 mt-2 bg-[#a31a1a] hover:bg-[#8a1616] text-white text-base md:text-lg font-semibold rounded-xl">
                     Submit Request
                   </Button>
                 </form>
@@ -349,7 +349,7 @@ export function V1Landing({ }: { setVersion: (v: number) => void }) {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-950 border-t border-slate-800 py-10 md:py-12 safe-bottom">
+      <footer className="bg-[#293049] border-t border-slate-800 py-10 md:py-12 safe-bottom">
         <div className="max-w-7xl mx-auto px-5 md:px-8 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-5 md:gap-6">
           <div className="flex items-center justify-center md:justify-start gap-3">
             <img src="/logo.jpg" alt="US Specialized" className="w-10 h-10 rounded-lg object-cover" />

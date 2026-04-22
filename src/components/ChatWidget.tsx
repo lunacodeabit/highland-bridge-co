@@ -60,7 +60,7 @@ export function ChatWidget() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 p-4 bg-red-600 text-white rounded-full shadow-2xl hover:bg-red-700 transition-colors flex items-center gap-2 group"
+            className="fixed bottom-6 right-6 z-50 p-4 bg-[#a31a1a] text-white rounded-full shadow-2xl hover:bg-[#8a1616] transition-colors flex items-center gap-2 group"
           >
             <MessageSquare size={24} />
             <span className="hidden group-hover:inline-block max-w-0 group-hover:max-w-xs overflow-hidden transition-all duration-300 ease-in-out whitespace-nowrap font-medium pr-1">
@@ -82,12 +82,12 @@ export function ChatWidget() {
             {/* Header */}
             <div className="bg-slate-800 p-4 flex justify-between items-center border-b border-slate-700">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-[#a31a1a] flex items-center justify-center">
                   <Bot size={18} className="text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-white">US Specialized Assistant</h3>
-                  <p className="text-xs text-red-400 flex items-center gap-1">
+                  <p className="text-xs text-[#c33535] flex items-center gap-1">
                     <span className="w-2 h-2 rounded-full bg-green-500 inline-block"></span>
                     Online
                   </p>
@@ -105,7 +105,7 @@ export function ChatWidget() {
                   <div
                     className={`max-w-[80%] p-3 rounded-2xl text-sm ${
                       msg.sender === 'user'
-                        ? 'bg-red-600 text-white rounded-br-sm'
+                        ? 'bg-[#a31a1a] text-white rounded-br-sm'
                         : 'bg-slate-800 text-slate-200 border border-slate-700 rounded-bl-sm'
                     }`}
                   >
@@ -140,7 +140,7 @@ export function ChatWidget() {
                   placeholder="Type a message..."
                   className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-400 focus-visible:ring-red-600"
                 />
-                <Button type="submit" size="icon" className="bg-red-600 hover:bg-red-700 text-white shrink-0">
+                <Button type="submit" size="icon" className="bg-[#a31a1a] hover:bg-[#8a1616] text-white shrink-0">
                   <Send size={18} />
                 </Button>
               </form>

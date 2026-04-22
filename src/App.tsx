@@ -42,7 +42,7 @@ export default function App() {
       <div className="fixed bottom-6 left-6 z-200 flex gap-2 bg-black/80 backdrop-blur-md p-2 rounded-2xl border border-white/10 shadow-2xl scale-90 sm:scale-100 origin-bottom-left transition-all hover:scale-105 group">
         <div className="hidden sm:flex flex-col gap-1 pr-2 border-r border-white/10 mr-1">
           <span className="text-[8px] font-black uppercase text-white/50 tracking-tighter">Reviewer</span>
-          <span className="text-[10px] font-black uppercase text-white tracking-widest leading-none underline decoration-[#D70C20]">Toolbar</span>
+          <span className="text-[10px] font-black uppercase text-white tracking-widest leading-none underline decoration-[#a31a1a]">Toolbar</span>
         </div>
         {[1, 2, 3].map((v) => (
           <button
@@ -50,7 +50,7 @@ export default function App() {
             onClick={() => setVersion(v)}
             className={`px-4 py-2 rounded-xl font-black text-xs transition-all duration-300 flex flex-col items-center gap-0.5 ${
               version === v 
-                ? 'bg-[#D70C20] text-white shadow-lg shadow-red-600/20' 
+                ? 'bg-[#a31a1a] text-white shadow-lg shadow-red-600/20' 
                 : 'text-white/60 hover:text-white hover:bg-white/10'
             }`}
           >

@@ -72,10 +72,10 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 overflow-x-hidden">
       {/* TOP BAR */}
-      <div className="bg-slate-950 text-white py-2 px-4 md:px-8 flex justify-between items-center text-xs relative z-50">
+      <div className="bg-[#293049] text-white py-2 px-4 md:px-8 flex justify-between items-center text-xs relative z-50">
         <div className="flex items-center gap-6">
-          <a href="tel:4694004200" className="flex items-center gap-2 hover:text-[#C8102E] transition-colors font-bold">
-            <div className="bg-[#C8102E] p-1.5 rounded-sm"><Phone className="w-3 h-3 fill-white" /></div> (469) 400-4200
+          <a href="tel:4694004200" className="flex items-center gap-2 hover:text-[#a31a1a] transition-colors font-bold">
+            <div className="bg-[#a31a1a] p-1.5 rounded-sm"><Phone className="w-3 h-3 fill-white" /></div> (469) 400-4200
           </a>
           <span className="hidden md:inline text-slate-700">|</span>
           <div className="hidden md:flex items-center gap-2 text-slate-300 font-bold uppercase tracking-wider">
@@ -83,7 +83,7 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
           </div>
         </div>
         <div className="flex items-center gap-2">
-           <a href="#contact" className="bg-[#C8102E] text-white px-3 md:px-4 py-1.5 rounded-sm font-bold flex items-center gap-2 hover:bg-white hover:text-black transition-all whitespace-nowrap"><Mail className="w-3 h-3" /><span className="hidden sm:inline">Get Help Online!</span><span className="sm:hidden">Quote</span></a>
+           <a href="#contact" className="bg-[#a31a1a] text-white px-3 md:px-4 py-1.5 rounded-sm font-bold flex items-center gap-2 hover:bg-white hover:text-black transition-all whitespace-nowrap"><Mail className="w-3 h-3" /><span className="hidden sm:inline">Get Help Online!</span><span className="sm:hidden">Quote</span></a>
         </div>
       </div>
 
@@ -100,9 +100,9 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
 
           <div className="hidden lg:flex items-center gap-8 font-black text-sm uppercase tracking-tight">
             {['Home', 'Products', 'Services', 'Gallery', 'About Us', 'Contact Us'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="hover:text-[#C8102E] transition-colors py-4 px-2">{item}</a>
+              <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="hover:text-[#a31a1a] transition-colors py-4 px-2">{item}</a>
             ))}
-            <Button className="bg-[#C8102E] hover:bg-slate-900 text-white px-8 py-6 rounded-sm font-black text-sm shadow-lg shadow-red-900/20 active:scale-95 transition-all">
+            <Button className="bg-[#a31a1a] hover:bg-slate-900 text-white px-8 py-6 rounded-sm font-black text-sm shadow-lg shadow-red-900/20 active:scale-95 transition-all">
               GET A FREE ESTIMATE
             </Button>
           </div>
@@ -115,12 +115,12 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
 
       {/* MOBILE MENU */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-110 bg-slate-950 text-white p-8 flex flex-col gap-8 text-3xl font-black">
+        <div className="fixed inset-0 z-110 bg-[#293049] text-white p-8 flex flex-col gap-8 text-3xl font-black">
           <button className="absolute top-8 right-8" onClick={() => setIsMenuOpen(false)}><X className="w-10 h-10" /></button>
           {['Home', 'Products', 'Services', 'Gallery', 'About Us', 'Contact Us'].map((item) => (
             <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} onClick={() => setIsMenuOpen(false)}>{item}</a>
           ))}
-          <Button className="bg-[#C8102E] text-2xl py-10 rounded-sm mt-4">FREE ESTIMATE</Button>
+          <Button className="bg-[#a31a1a] text-2xl py-10 rounded-sm mt-4">FREE ESTIMATE</Button>
         </div>
       )}
 
@@ -149,7 +149,7 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
               className="font-black tracking-tight leading-[0.9] mb-5 md:mb-6 drop-shadow-2xl text-[clamp(2.5rem,11vw,6rem)] md:text-8xl"
             >
               HEAVY-DUTY <br/>
-              <span className="text-[#C8102E]">STEEL BRIDGES</span> <br/>
+              <span className="text-[#a31a1a]">STEEL BRIDGES</span> <br/>
               BUILT TO LAST
             </motion.h1>
             <motion.p 
@@ -165,7 +165,7 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <Button className="bg-[#C8102E] hover:bg-white hover:text-black transition-all text-white px-6 md:px-12 h-14 md:h-auto md:py-9 text-base md:text-2xl font-black rounded-sm shadow-2xl flex items-center gap-3 md:gap-4 w-full sm:w-auto">
+              <Button className="bg-[#a31a1a] hover:bg-white hover:text-black transition-all text-white px-6 md:px-12 h-14 md:h-auto md:py-9 text-base md:text-2xl font-black rounded-sm shadow-2xl flex items-center gap-3 md:gap-4 w-full sm:w-auto">
                 GET A FREE ESTIMATE <ArrowRight className="w-5 h-5 md:w-8 md:h-8" />
               </Button>
             </motion.div>
@@ -175,14 +175,14 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
         {/* TRUST STRIP (STAR RATING) */}
         <div className="hidden md:flex absolute bottom-10 right-10 z-20 flex-col items-end gap-2 text-white">
           <div className="flex gap-1">
-             {[1,2,3,4,5].map(i => <Star key={i} className="w-6 h-6 fill-[#C8102E] text-[#C8102E]" />)}
+             {[1,2,3,4,5].map(i => <Star key={i} className="w-6 h-6 fill-[#a31a1a] text-[#a31a1a]" />)}
           </div>
           <p className="font-black text-xl uppercase tracking-tighter">5.0 Rating / 250+ Projects</p>
         </div>
       </section>
 
       {/* FEATURE CARDS */}
-      <section className="py-16 md:py-24 bg-slate-50 relative"><div className="container mx-auto px-5 md:px-4"><div className="text-center mb-10 md:mb-16"><h6 className="text-[#C8102E] font-black uppercase tracking-[0.3em] text-xs md:text-sm mb-3 md:mb-4">Why Choose Us</h6><h2 className="text-3xl md:text-6xl font-black tracking-tight uppercase leading-tight">Unmatched <span className="text-slate-400">Capabilities</span></h2></div>
+      <section className="py-16 md:py-24 bg-slate-50 relative"><div className="container mx-auto px-5 md:px-4"><div className="text-center mb-10 md:mb-16"><h6 className="text-[#a31a1a] font-black uppercase tracking-[0.3em] text-xs md:text-sm mb-3 md:mb-4">Why Choose Us</h6><h2 className="text-3xl md:text-6xl font-black tracking-tight uppercase leading-tight">Unmatched <span className="text-slate-400">Capabilities</span></h2></div>
            
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
              {benefits.map((b, i) => (
@@ -201,7 +201,7 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
                    </div>
                  </div>
                  <div className="p-6 md:p-8 pb-8 md:pb-10 grow">
-                   <h4 className="font-black text-xl md:text-2xl uppercase tracking-tight mb-3 md:mb-4 text-[#2E7731] group-hover:text-[#C8102E] transition-colors">
+                   <h4 className="font-black text-xl md:text-2xl uppercase tracking-tight mb-3 md:mb-4 text-[#2E7731] group-hover:text-[#a31a1a] transition-colors">
                      {b.title}
                    </h4>
                    <p className="text-slate-500 font-bold leading-relaxed text-sm">
@@ -223,10 +223,10 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
               <div className="aspect-video overflow-hidden rounded-sm shadow-2xl group">
                 <img src={s.img} alt={s.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#C8102E]/10 -z-10 rounded-full"></div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#a31a1a]/10 -z-10 rounded-full"></div>
             </div>
             <div className="w-full md:w-1/2">
-              <h6 className="text-[#C8102E] font-black uppercase tracking-[0.3em] text-sm mb-4">Our Core Service</h6>
+              <h6 className="text-[#a31a1a] font-black uppercase tracking-[0.3em] text-sm mb-4">Our Core Service</h6>
               <h2 className="text-3xl md:text-5xl font-black tracking-tight uppercase leading-tight md:leading-none mb-4 md:mb-6">{s.title}</h2>
               <p className="text-base md:text-xl text-slate-600 font-medium leading-relaxed mb-6 md:mb-8">
                 {s.description}
@@ -245,7 +245,7 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
       </section>
 
       {/* FINAL CTA - Red Section */}
-      <section className="py-16 md:py-24 bg-[#C8102E] text-white relative overflow-hidden" id="contact">
+      <section className="py-16 md:py-24 bg-[#a31a1a] text-white relative overflow-hidden" id="contact">
         <div className="absolute inset-0 bg-[url('/blueprint_bridge.png')] opacity-10 mix-blend-overlay"></div>
         <div className="container mx-auto px-5 md:px-4 text-center relative z-10"><h2 className="font-black tracking-tighter uppercase mb-4 md:mb-6 drop-shadow-lg text-[clamp(2.5rem,11vw,5.5rem)] md:text-7xl leading-[0.95]">
             Ready to Build?
@@ -267,7 +267,7 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-slate-950 text-white pt-24 pb-12 border-t border-slate-900">
+      <footer className="bg-[#293049] text-white pt-24 pb-12 border-t border-slate-900">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
             <div className="col-span-1 md:col-span-1">
@@ -283,7 +283,7 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
               </p>
               <div className="flex gap-4">
                 {[Globe, Activity, Mail, Phone].map((Icon, i) => (
-                  <div key={i} className="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-[#C8102E] transition-colors cursor-pointer group">
+                  <div key={i} className="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-[#a31a1a] transition-colors cursor-pointer group">
                     <Icon size={18} className="text-slate-400 group-hover:text-white" />
                   </div>
                 ))}
@@ -291,7 +291,7 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
             </div>
 
             <div>
-              <h4 className="font-black uppercase tracking-widest text-[#C8102E] mb-8">Navigation</h4>
+              <h4 className="font-black uppercase tracking-widest text-[#a31a1a] mb-8">Navigation</h4>
               <ul className="flex flex-col gap-4 text-slate-400 font-black text-xs uppercase tracking-widest">
                 <li className="hover:text-white cursor-pointer transition-colors">Residential Projects</li>
                 <li className="hover:text-white cursor-pointer transition-colors">Commercial Scale</li>
@@ -301,25 +301,25 @@ export default function WintergreenLanding({ }: { setVersion: (v: number) => voi
             </div>
 
             <div>
-              <h4 className="font-black uppercase tracking-widest text-[#C8102E] mb-8">Contact Us</h4>
+              <h4 className="font-black uppercase tracking-widest text-[#a31a1a] mb-8">Contact Us</h4>
               <ul className="flex flex-col gap-6 text-slate-400 font-bold text-sm">
                 <li className="flex items-start gap-4">
-                  <MapPin className="text-[#C8102E] w-5 h-5 shrink-0" />
+                  <MapPin className="text-[#a31a1a] w-5 h-5 shrink-0" />
                   <span>Installing Nationwide</span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <Phone className="text-[#C8102E] w-5 h-5 shrink-0" />
+                  <Phone className="text-[#a31a1a] w-5 h-5 shrink-0" />
                   <span>(469) 400-4200</span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <Mail className="text-[#C8102E] w-5 h-5 shrink-0" />
+                  <Mail className="text-[#a31a1a] w-5 h-5 shrink-0" />
                   <span>info@usspecialized.com</span>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-black uppercase tracking-widest text-[#C8102E] mb-8">Installation Map</h4>
+              <h4 className="font-black uppercase tracking-widest text-[#a31a1a] mb-8">Installation Map</h4>
               <div className="aspect-square bg-slate-900 rounded-sm overflow-hidden grayscale border border-slate-800 opacity-50 hover:opacity-100 transition-opacity">
                 <iframe 
                   title="map"
